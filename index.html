@@ -14,11 +14,12 @@
         }
 
         body {
-            background-color: #f0f6ef;
-            color: #2c3e2b;
+            background: linear-gradient(135deg, #eaf5ea 0%, #d4e8d4 100%);
+            color: #1a3b1a;
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         h1, h2, h3, .script-text {
@@ -30,9 +31,13 @@
         h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #8bc48a;
+            border-left: 4px solid #5a9e5a;
             padding-left: 1rem;
             display: inline-block;
+            background: linear-gradient(135deg, #2d5a2d, #5a9e5a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .container {
@@ -41,217 +46,198 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero с анимацией и прозрачностью */
+        /* Hero с жидким стеклом */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat;
-            background-attachment: fixed;
-            color: white;
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             position: relative;
+            animation: heroGlow 3s infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.05); }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(90,158,90,0.2) 0%, rgba(0,0,0,0.1) 100%);
+            backdrop-filter: blur(2px);
         }
 
         .hero-content {
-            background: rgba(44, 43, 40, 0.35);
-            backdrop-filter: blur(2px);
-            padding: 2.5rem;
+            position: relative;
+            background: rgba(255, 255, 245, 0.2);
+            backdrop-filter: blur(12px);
             border-radius: 3rem;
+            padding: 3rem;
             max-width: 90%;
             width: 100%;
+            border: 1px solid rgba(90,158,90,0.5);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+            animation: floatGlass 6s infinite ease-in-out;
         }
 
-        /* Аббревиатура А&Д */
-        .initials {
-            font-size: 8rem;
-            font-weight: 600;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 8px;
-            margin-bottom: 2rem;
-            animation: fadeInDown 1s ease-out;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        @keyframes floatGlass {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Имена по бокам */
-        .names-container {
+        /* Имена над аббревиатурой */
+        .names-above {
+            margin-bottom: 1rem;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 3rem;
-            gap: 2rem;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: dropNames 0.8s ease-out forwards;
         }
 
-        .name-left, .name-right {
+        @keyframes dropNames {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .name-above {
             font-size: 2.2rem;
             font-weight: 500;
             font-family: 'Cormorant Garamond', serif;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #ffffff, #e0f0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .name-left {
-            animation-delay: 0.3s;
-            transform-origin: left;
+        /* Аббревиатура */
+        .initials {
+            font-size: 7rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 12px;
+            background: linear-gradient(135deg, #f5fff5, #8bc48a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(90,158,90,0.5);
+            animation: pulseGlow 2.5s infinite ease-in-out;
         }
 
-        .name-right {
-            animation-delay: 0.6s;
-            transform-origin: right;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes pulseGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(90,158,90,0.3); letter-spacing: 12px; }
+            50% { text-shadow: 0 0 30px rgba(90,158,90,0.8); letter-spacing: 14px; }
         }
 
         .date-badge {
-            font-size: 1.4rem;
-            margin-top: 2rem;
-            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
             font-weight: 300;
             letter-spacing: 2px;
-            animation: fadeIn 1.2s ease-out;
+            color: #f0fff0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Стеклянные блоки */
+        .glass-card {
+            background: rgba(255, 255, 245, 0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(90,158,90,0.4);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 245, 0.4);
+            border-color: rgba(90,158,90,0.7);
         }
 
         /* Таймер */
-        .timer-section {
-            background: #f5faf4;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
         .timer {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             flex-wrap: wrap;
-            margin: 2rem 0 1rem;
+            margin: 2rem 0;
         }
 
         .timer-block {
-            background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            padding: 1rem 1.5rem;
+            background: rgba(255,255,245,0.4);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 1.8rem;
             border-radius: 2rem;
             min-width: 100px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(90,158,90,0.5);
+            animation: gentleSway 3s infinite;
+        }
+
+        @keyframes gentleSway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(1deg); }
         }
 
         .timer-block:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(90,158,90,0.3);
         }
 
         .timer-number {
             font-size: 3rem;
-            font-weight: 600;
-            color: #6aa86a;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2d5a2d, #6aaa6a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        /* Блок приглашения */
-        .invitation-text {
-            background: linear-gradient(135deg, #f5faf4 0%, #edf5ea 100%);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        /* RSVP простая форма */
-        .rsvp-simple {
-            background: white;
-            border-radius: 2rem;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .rsvp-options {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-
+        /* RSVP кнопки */
         .rsvp-btn {
             padding: 1rem 2rem;
             font-size: 1.2rem;
             border: none;
             border-radius: 3rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             font-weight: 600;
+            backdrop-filter: blur(4px);
         }
 
         .rsvp-yes {
-            background: #6aa86a;
+            background: rgba(90,158,90,0.8);
             color: white;
         }
 
         .rsvp-yes:hover {
-            background: #528a52;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(106,168,106,0.3);
+            background: #5a9e5a;
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 10px 25px rgba(90,158,90,0.4);
         }
 
         .rsvp-no {
-            background: #d4e0cf;
-            color: #2c3e2b;
+            background: rgba(180,200,170,0.7);
+            color: #2c5a2c;
         }
 
         .rsvp-no:hover {
-            background: #bcd0b5;
-            transform: scale(1.05);
+            background: rgba(150,180,130,0.9);
+            transform: scale(1.05) rotate(-1deg);
         }
 
-        .rsvp-message {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-top: 1rem;
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.9); }
-            60% { opacity: 1; transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Алкоголь опросник */
-        .alcohol-poll {
-            background: #f5faf4;
-            border-radius: 2rem;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
+        /* Алкоголь карточки */
         .drinks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -260,68 +246,48 @@
         }
 
         .drink-card {
-            background: white;
+            background: rgba(255,255,245,0.3);
+            backdrop-filter: blur(8px);
             border-radius: 1.5rem;
             padding: 1.5rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(90,158,90,0.3);
         }
 
         .drink-card:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(-12px) rotate(2deg);
+            background: rgba(90,158,90,0.25);
+            border-color: #5a9e5a;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
         }
 
         .drink-card.selected {
-            border-color: #6aa86a;
-            background: #edf5ea;
+            background: rgba(90,158,90,0.4);
+            border-color: #5a9e5a;
             transform: scale(1.02);
         }
 
         .drink-icon {
             font-size: 3.5rem;
             display: inline-block;
-            animation: float 3s ease-in-out infinite;
+            animation: gentleFloat 3s infinite;
         }
 
-        @keyframes float {
+        @keyframes gentleFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
-        .drink-card:hover .drink-icon {
-            animation: shake 0.5s ease;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            75% { transform: rotate(-10deg); }
-        }
-
-        .drink-name {
-            font-weight: 600;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-            color: #2c3e2b;
-        }
-
-        /* Кнопки соцсетей */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
+        /* Социальные кнопки */
         .social-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.8rem 1.8rem;
-            background: #2c3e2b;
+            background: rgba(45,90,45,0.7);
+            backdrop-filter: blur(8px);
             color: white;
             text-decoration: none;
             border-radius: 3rem;
@@ -331,8 +297,8 @@
 
         .social-btn:hover {
             transform: translateY(-3px);
+            background: #5a9e5a;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            background: #6aa86a;
         }
 
         /* Секретная кнопка */
@@ -340,26 +306,27 @@
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: #6aa86a;
+            background: rgba(90,158,90,0.8);
+            backdrop-filter: blur(8px);
             color: white;
             border: none;
             border-radius: 50px;
             padding: 12px 24px;
-            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            backdrop-filter: blur(4px);
-            background: rgba(106, 168, 106, 0.95);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(90,158,90,0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(90,158,90,0); }
         }
 
         .secret-button:hover {
-            transform: scale(1.05) translateY(-3px);
-            background: #528a52;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            transform: scale(1.05);
+            background: #5a9e5a;
         }
 
         /* Модальное окно */
@@ -370,87 +337,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(5px);
         }
 
         .modal-content {
-            background: #f0f6ef;
+            background: rgba(240,250,235,0.95);
+            backdrop-filter: blur(12px);
             max-width: 500px;
             width: 90%;
             padding: 2rem;
             border-radius: 2rem;
             text-align: center;
-            position: relative;
-            animation: slideUpModal 0.4s ease-out;
-            border: 1px solid #8bc48a;
+            border: 1px solid #5a9e5a;
+            animation: modalPop 0.4s ease-out;
         }
 
-        @keyframes slideUpModal {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-content h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #6aa86a;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6aa86a;
-            transition: 0.2s;
-        }
-
-        .close-modal:hover {
-            transform: scale(1.2);
-        }
-
-        .modal-icon {
-            font-size: 3rem;
-            margin: 1rem 0;
-        }
-
-        /* Анимации AOS */
-        [data-aos] {
-            opacity: 0;
-            transition-property: opacity, transform;
-        }
-
-        [data-aos].aos-animate {
-            opacity: 1;
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: #2c3e2b;
-            color: #f0f6ef;
+            background: rgba(45,70,35,0.8);
+            color: #eaf5ea;
             margin-top: 2rem;
         }
 
         @media (max-width: 768px) {
-            .initials { font-size: 4rem; letter-spacing: 4px; }
-            .name-left, .name-right { font-size: 1.2rem; }
-            .names-container { gap: 1rem; }
-            .drinks-grid { grid-template-columns: repeat(2, 1fr); }
-            .rsvp-options { flex-direction: column; align-items: center; }
-            .rsvp-btn { width: 80%; }
-            .secret-button { padding: 10px 18px; font-size: 0.9rem; bottom: 20px; right: 20px; }
+            .initials { font-size: 3.5rem; letter-spacing: 6px; }
+            .name-above { font-size: 1.3rem; }
+            .names-above { gap: 1.5rem; }
+            .timer-number { font-size: 2rem; }
         }
     </style>
 </head>
@@ -458,109 +381,86 @@
 
 <section class="hero">
     <div class="hero-content">
-        <div class="initials">А&Д</div>
-        <div class="names-container">
-            <div class="name-left">Андрей</div>
-            <div class="name-right">Дарья</div>
+        <div class="names-above">
+            <span class="name-above">Андрей</span>
+            <span class="name-above">Дарья</span>
         </div>
+        <div class="initials">А&Д</div>
         <div class="date-badge">22 августа 2026</div>
-        <div style="font-size:1rem; margin-top:1rem;">Церемония 15:40 | Банкет 17:00</div>
+        <div style="font-size:0.95rem; margin-top:0.8rem;">Церемония 15:40 | Банкет 17:00</div>
     </div>
 </section>
 
 <div class="container">
     <!-- Таймер -->
-    <div class="timer-section" data-aos="fade-up">
+    <div class="glass-card" data-aos="fade-up">
         <h2>До нашей свадьбы осталось</h2>
         <div class="timer" id="countdown-timer">
-            <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">Дней</div></div>
-            <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">Часов</div></div>
-            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">Минут</div></div>
-            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">Секунд</div></div>
+            <div class="timer-block"><div class="timer-number" id="days">00</div><div>Дней</div></div>
+            <div class="timer-block"><div class="timer-number" id="hours">00</div><div>Часов</div></div>
+            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div>Минут</div></div>
+            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div>Секунд</div></div>
         </div>
     </div>
 
-    <!-- Пригласительный текст -->
-    <div class="invitation-text" data-aos="fade-right">
+    <!-- Приглашение -->
+    <div class="glass-card" data-aos="fade-right">
         <h2>Дорогие гости!</h2>
-        <p style="font-size:1.2rem; margin: 1.5rem 0; line-height:1.6;">
-            Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни.<br>
-            Ваше присутствие — лучший подарок для нас.
-        </p>
-        <p style="font-style: italic; color: #6aa86a;">✨ Ждём вас в этот особенный день ✨</p>
+        <p style="font-size:1.2rem; margin:1.5rem 0;">Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни.<br>Ваше присутствие — лучший подарок для нас.</p>
+        <p style="font-style:italic; color:#5a9e5a;">✨ Ждём вас в этот особенный день ✨</p>
     </div>
 
-    <!-- Простая RSVP форма -->
-    <div class="rsvp-simple" data-aos="fade-left">
+    <!-- RSVP -->
+    <div class="glass-card" data-aos="fade-left">
         <h2>Подтвердите присутствие</h2>
-        <p>Пожалуйста, дайте ответ до 1 июля 2026</p>
-        <div class="rsvp-options">
+        <p>До 1 июля 2026</p>
+        <div class="rsvp-options" style="display:flex; gap:1rem; justify-content:center; margin:1.5rem 0;">
             <button class="rsvp-btn rsvp-yes" onclick="handleRSVP('yes')">✅ Я буду!</button>
-            <button class="rsvp-btn rsvp-no" onclick="handleRSVP('no')">❌ Не смогу прийти</button>
+            <button class="rsvp-btn rsvp-no" onclick="handleRSVP('no')">❌ Не смогу</button>
         </div>
-        <div id="rsvpMessage" class="rsvp-message"></div>
+        <div id="rsvpMessage" style="text-align:center; margin-top:1rem;"></div>
     </div>
 
-    <!-- Опросник по алкоголю -->
-    <div class="alcohol-poll" data-aos="zoom-in">
+    <!-- Алкоголь -->
+    <div class="glass-card" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
-        <p>Выберите до 3 вариантов, чтобы мы знали, чем побаловать ✨</p>
+        <p>Выберите до 3 вариантов</p>
         <div class="drinks-grid" id="drinksGrid">
-            <div class="drink-card" data-drink="Вино">
-                <div class="drink-icon">🍷</div>
-                <div class="drink-name">Вино</div>
-            </div>
-            <div class="drink-card" data-drink="Водка">
-                <div class="drink-icon">🥃</div>
-                <div class="drink-name">Водка</div>
-            </div>
-            <div class="drink-card" data-drink="Виски">
-                <div class="drink-icon">🥃✨</div>
-                <div class="drink-name">Виски</div>
-            </div>
-            <div class="drink-card" data-drink="Коньяк">
-                <div class="drink-icon">🥃🌟</div>
-                <div class="drink-name">Коньяк</div>
-            </div>
-            <div class="drink-card" data-drink="Самогон">
-                <div class="drink-icon">🔥</div>
-                <div class="drink-name">Самогон</div>
-            </div>
+            <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
+            <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
+            <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
+            <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
+            <div class="drink-card" data-drink="Самогон"><div class="drink-icon">🔥</div><div>Самогон</div></div>
         </div>
-        <div id="alcoholSelectionStatus" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #6aa86a;"></div>
+        <div id="alcoholSelectionStatus" style="text-align:center; margin-top:1rem; color:#5a9e5a;"></div>
     </div>
 
     <!-- Локации -->
-    <div data-aos="fade-up">
+    <div class="glass-card" data-aos="fade-up">
         <h2>Места проведения</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
-            <div style="flex:1; background: white; padding: 1rem; border-radius: 1rem;">
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin:1.5rem 0;">
+            <div style="flex:1; background:rgba(255,255,245,0.4); padding:1rem; border-radius:1rem;">
                 <h3>📖 ЗАГС</h3>
-                <p>Свободный пер., 5<br>🕒 15:40</p>
-                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#6aa86a;">Карта →</a>
+                <p>Свободный пер., 5<br>15:40</p>
+                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#5a9e5a;">Карта →</a>
             </div>
-            <div style="flex:1; background: white; padding: 1rem; border-radius: 1rem;">
+            <div style="flex:1; background:rgba(255,255,245,0.4); padding:1rem; border-radius:1rem;">
                 <h3>🍾 Отель «Тверь»</h3>
-                <p>Петербургское ш., 130<br>🕒 17:00</p>
-                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#6aa86a;">Карта →</a>
+                <p>Петербургское ш., 130<br>17:00</p>
+                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#5a9e5a;">Карта →</a>
             </div>
         </div>
-        <p style="background:#edf5ea; padding:0.8rem; border-radius:1rem; text-align:center;">🚌 Трансфер до банкета будет организован. О церемонии позаботьтесь самостоятельно.</p>
+        <p style="text-align:center;">🚌 Трансфер до банкета будет организован</p>
     </div>
 
-    <!-- Связь с нами -->
-    <div data-aos="fade-up" style="text-align: center; margin: 3rem 0;">
+    <!-- Соцсети -->
+    <div class="glass-card" data-aos="fade-up" style="text-align:center;">
         <h2>Свяжитесь с нами</h2>
-        <p>Если остались вопросы — напишите нам!</p>
-        <div class="social-links">
-            <a href="https://vk.com/id163521338" target="_blank" class="social-btn">
-                📱 Андрей
-            </a>
-            <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">
-                💖 Дарья
-            </a>
+        <div style="display:flex; justify-content:center; gap:1.5rem; margin:1.5rem 0;">
+            <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
+            <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
         </div>
-        <p style="margin-top: 2rem; font-style: italic;">Дресс-код свободный, будем рады светлым и нежным оттенкам 🌿</p>
+        <p>Дресс-код свободный, приветствуются светлые оттенки 🌿</p>
     </div>
 </div>
 
@@ -569,140 +469,101 @@
     <p>Ждём вас с нетерпением! 💚</p>
 </footer>
 
-<!-- Секретная кнопка -->
 <button class="secret-button" id="secretBtn">💚 Секретик</button>
 
 <div id="secretModal" class="modal">
     <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        <div class="modal-icon">🤫🌿</div>
+        <span class="close-modal" id="closeModalBtn" style="float:right; font-size:2rem; cursor:pointer;">&times;</span>
+        <div style="font-size:3rem;">🤫🌿</div>
         <h3>Секрет второго дня</h3>
-        <p>🌙 У нас будет продолжение!<br>
-        Второй день — тёплые посиделки, игры и душевные разговоры. Атмосфера обещает быть сказочной...</p>
-        <p>🎁 <strong>Скоро все узнаете!</strong> Мы обязательно всё расскажем — следите за новостями 💚</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color:#6aa86a;">✨ А пока — сохраните интригу ✨</p>
+        <p>Будет продолжение!<br>Тёплые посиделки, игры, душевные разговоры.</p>
+        <p><strong>Скоро всё узнаете!</strong> Мы обязательно расскажем 💚</p>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true, offset: 100 });
+    AOS.init({ duration: 1000, once: false, offset: 100 });
 
     // Таймер
     const weddingDate = new Date(2026, 7, 22, 0, 0, 0).getTime();
     function updateTimer() {
         const now = new Date().getTime();
-        const distance = weddingDate - now;
-        if (distance < 0) {
-            document.getElementById('days').innerText = '00';
-            document.getElementById('hours').innerText = '00';
-            document.getElementById('minutes').innerText = '00';
-            document.getElementById('seconds').innerText = '00';
-            return;
-        }
-        document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById('hours').innerText = Math.floor((distance % (86400000)) / (3600000));
-        document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000);
-        document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000);
+        const dist = weddingDate - now;
+        if(dist < 0) return;
+        document.getElementById('days').innerText = Math.floor(dist / (1000*60*60*24));
+        document.getElementById('hours').innerText = Math.floor((dist % 86400000) / 3600000);
+        document.getElementById('minutes').innerText = Math.floor((dist % 3600000) / 60000);
+        document.getElementById('seconds').innerText = Math.floor((dist % 60000) / 1000);
     }
     updateTimer();
     setInterval(updateTimer, 1000);
 
     // RSVP
-    function handleRSVP(answer) {
-        const messageDiv = document.getElementById('rsvpMessage');
-        if (answer === 'yes') {
-            messageDiv.innerHTML = '🎉 Спасибо большое! Ждём вас с огромной радостью! Готовьте танцевальные ноги и хорошее настроение — будет незабываемо! 💑✨';
-            messageDiv.style.background = '#e8f5e9';
-            messageDiv.style.color = '#2e7d32';
+    window.handleRSVP = function(answer) {
+        const msgDiv = document.getElementById('rsvpMessage');
+        if(answer === 'yes') {
+            msgDiv.innerHTML = '🎉 Спасибо! Ждём вас с радостью! Будет незабываемо! 💚';
+            msgDiv.style.background = 'rgba(90,158,90,0.3)';
         } else {
-            messageDiv.innerHTML = '💔 Очень жаль, что не сможете быть. Спасибо, что предупредили! Мы всё равно вас очень любим и чокнемся за ваше здоровье 🥂';
-            messageDiv.style.background = '#ffebee';
-            messageDiv.style.color = '#c62828';
+            msgDiv.innerHTML = '💔 Очень жаль! Спасибо, что предупредили. Чокнемся за вас! 🥂';
+            msgDiv.style.background = 'rgba(200,150,140,0.3)';
         }
-        messageDiv.style.padding = '1rem';
-        messageDiv.style.borderRadius = '1rem';
-        messageDiv.style.animation = 'bounceIn 0.6s ease-out';
-        setTimeout(() => messageDiv.style.animation = '', 600);
-    }
+        msgDiv.style.padding = '1rem';
+        msgDiv.style.borderRadius = '2rem';
+        setTimeout(() => msgDiv.style.background = 'transparent', 2000);
+    };
 
     // Алкоголь
     let selectedDrinks = [];
-    const drinkCards = document.querySelectorAll('.drink-card');
+    const cards = document.querySelectorAll('.drink-card');
     const statusSpan = document.getElementById('alcoholSelectionStatus');
-
-    drinkCards.forEach(card => {
+    cards.forEach(card => {
         card.addEventListener('click', () => {
             const drink = card.getAttribute('data-drink');
-            const index = selectedDrinks.indexOf(drink);
-            
-            if (index !== -1) {
-                selectedDrinks.splice(index, 1);
+            const idx = selectedDrinks.indexOf(drink);
+            if(idx !== -1) {
+                selectedDrinks.splice(idx,1);
                 card.classList.remove('selected');
-                card.style.animation = 'shake 0.3s ease';
-                setTimeout(() => card.style.animation = '', 300);
             } else {
-                if (selectedDrinks.length >= 3) {
-                    statusSpan.innerHTML = '❓ Можно выбрать не больше 3 напитков! ❓';
-                    statusSpan.style.animation = 'shake 0.4s';
-                    setTimeout(() => statusSpan.style.animation = '', 400);
+                if(selectedDrinks.length >= 3) {
+                    statusSpan.innerText = '❓ Не больше 3 напитков!';
+                    setTimeout(() => statusSpan.innerText = '', 1500);
                     return;
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
-                card.style.animation = 'bounceIn 0.4s';
-                setTimeout(() => card.style.animation = '', 400);
             }
-            
-            if (selectedDrinks.length > 0) {
-                statusSpan.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🍻 Обязательно приготовим ✨`;
-                statusSpan.style.background = '#edf5ea';
-                statusSpan.style.padding = '0.5rem';
-                statusSpan.style.borderRadius = '2rem';
-            } else {
-                statusSpan.innerHTML = 'Пока ничего не выбрано. Нажмите на любимые напитки (до 3-х)';
-                statusSpan.style.background = 'transparent';
-            }
+            if(selectedDrinks.length) statusSpan.innerText = `✨ Вы выбрали: ${selectedDrinks.join(', ')} ✨`;
+            else statusSpan.innerText = '';
         });
     });
 
-    // Конфетти
-    function createFloatingElement() {
-        const emojis = ['💑', '💍', '🥂', '🎉', '✨', '💚', '🍾', '🌿'];
-        const el = document.createElement('div');
-        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        el.style.position = 'fixed';
-        el.style.left = Math.random() * 100 + '%';
-        el.style.top = '-50px';
-        el.style.fontSize = (Math.random() * 20 + 20) + 'px';
-        el.style.opacity = Math.random() * 0.6 + 0.3;
-        el.style.pointerEvents = 'none';
-        el.style.zIndex = '9999';
-        el.style.transition = 'transform 4s linear, opacity 4s';
-        document.body.appendChild(el);
-        setTimeout(() => {
-            el.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`;
-            el.style.opacity = '0';
-        }, 10);
-        setTimeout(() => el.remove(), 4000);
+    // Капли дождя / жидкое стекло (декоративные)
+    function createDrop() {
+        const drop = document.createElement('div');
+        drop.innerHTML = '💧';
+        drop.style.position = 'fixed';
+        drop.style.left = Math.random() * 100 + '%';
+        drop.style.top = '-20px';
+        drop.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        drop.style.opacity = Math.random() * 0.5 + 0.2;
+        drop.style.pointerEvents = 'none';
+        drop.style.zIndex = '999';
+        drop.style.transition = 'top 4s linear, opacity 2s';
+        document.body.appendChild(drop);
+        setTimeout(() => { drop.style.top = '100vh'; drop.style.opacity = '0'; }, 10);
+        setTimeout(() => drop.remove(), 4000);
     }
-    
-    setInterval(() => {
-        for(let i = 0; i < 3; i++) setTimeout(() => createFloatingElement(), i * 200);
-    }, 7000);
-    
-    window.addEventListener('load', () => {
-        for(let i = 0; i < 5; i++) setTimeout(() => createFloatingElement(), i * 300);
-    });
+    setInterval(() => { for(let i=0;i<2;i++) setTimeout(createDrop, i*300); }, 5000);
 
-    // Секретная кнопка
+    // Секрет
     const secretBtn = document.getElementById('secretBtn');
     const modal = document.getElementById('secretModal');
     const closeBtn = document.getElementById('closeModalBtn');
-
-    secretBtn.addEventListener('click', () => modal.style.display = 'flex');
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    secretBtn.onclick = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 </script>
 </body>
 </html>
