@@ -43,7 +43,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero секция */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -100,7 +99,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Карточки */
         .glass-card {
             background: rgba(255, 248, 240, 0.88);
             backdrop-filter: blur(8px);
@@ -118,7 +116,6 @@
             border-color: rgba(212, 175, 122, 0.6);
         }
 
-        /* Фото галерея */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -143,12 +140,8 @@
         .photo-placeholder {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #f5e6e0, #ecd9d0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            color: #d4af7a;
+            background-size: cover;
+            background-position: center;
             transition: all 0.3s;
         }
 
@@ -164,7 +157,6 @@
             color: #8b5e5e;
         }
 
-        /* Таймер */
         .timer {
             display: flex;
             justify-content: center;
@@ -202,7 +194,6 @@
             letter-spacing: 1px;
         }
 
-        /* RSVP */
         .rsvp-radio-group {
             display: flex;
             gap: 2rem;
@@ -263,7 +254,6 @@
             }
         }
 
-        /* Блок про подарки (вино вместо цветов) */
         .gift-block {
             background: linear-gradient(135deg, rgba(212,175,122,0.15), rgba(201,160,108,0.1));
             border-radius: 1.8rem;
@@ -314,7 +304,6 @@
             transform: scale(1.02);
         }
 
-        /* Алкоголь */
         .drinks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -386,7 +375,6 @@
             }
         }
 
-        /* Социальные кнопки */
         .social-links {
             display: flex;
             justify-content: center;
@@ -414,7 +402,6 @@
             box-shadow: 0 8px 20px rgba(201,160,108,0.3);
         }
 
-        /* Плавающие кнопки */
         .floating-buttons {
             position: fixed;
             bottom: 25px;
@@ -452,7 +439,6 @@
             50% { box-shadow: 0 0 0 8px rgba(201,160,108,0); }
         }
 
-        /* Модалки */
         .modal {
             display: none;
             position: fixed;
@@ -523,7 +509,6 @@
 </section>
 
 <div class="container">
-    <!-- Таймер -->
     <div class="glass-card" data-aos="fade-up">
         <h2>До свадьбы осталось</h2>
         <div class="timer" id="countdown-timer">
@@ -534,33 +519,31 @@
         </div>
     </div>
 
-    <!-- Приглашение -->
     <div class="glass-card" data-aos="fade-right">
         <h2>Дорогие гости!</h2>
         <p style="font-size:1.2rem; margin:1rem 0;">Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни. Ваше присутствие — лучший подарок для нас.</p>
         <p style="font-style:italic; color:#c9a06c;">✨ Ждём вас в этот особенный день ✨</p>
     </div>
 
-    <!-- Фотогалерея -->
+    <!-- Фото галерея - СЮДА КЛАДЁТЕ ФОТО -->
     <div data-aos="fade-up">
         <h2>Наши моменты</h2>
         <div class="photo-gallery">
             <div class="photo-card">
-                <div class="photo-placeholder">📸</div>
-                <div class="photo-caption">Наше фото — скоро здесь</div>
+                <div class="photo-placeholder" style="background-image: url('images/1.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="photo-caption">✨ Наша история</div>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder">💑</div>
-                <div class="photo-caption">И ещё одно</div>
+                <div class="photo-placeholder" style="background-image: url('images/2.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="photo-caption">💑 Счастье вместе</div>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder">✨</div>
-                <div class="photo-caption">Момент счастья</div>
+                <div class="photo-placeholder" style="background-image: url('images/3.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="photo-caption">💍 Скоро свадьба</div>
             </div>
         </div>
     </div>
 
-    <!-- RSVP -->
     <div class="glass-card" data-aos="fade-left">
         <h2>Подтвердите присутствие</h2>
         <p style="color:#9e6b6b;">Пожалуйста, ответьте до 1 июля 2026</p>
@@ -577,7 +560,6 @@
         <div id="rsvpMessage" class="rsvp-message"></div>
     </div>
 
-    <!-- Блок про подарки (вино вместо цветов) -->
     <div class="gift-block" data-aos="fade-up">
         <div class="gift-icon">🥂🍇✨</div>
         <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
@@ -589,7 +571,6 @@
         <button class="gift-btn" id="understandBtn">Понял 👌</button>
     </div>
 
-    <!-- Алкоголь опрос -->
     <div class="glass-card" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
         <p>Выберите до 3 вариантов 🥂 (но помните про лимит 😉)</p>
@@ -603,7 +584,6 @@
         <div id="alcoholSelectionStatus" class="alcohol-status"></div>
     </div>
 
-    <!-- Локации -->
     <div class="glass-card" data-aos="fade-up">
         <h2>Места проведения</h2>
         <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
@@ -621,7 +601,6 @@
         <p style="text-align:center; color:#9e6b6b;">🚌 Трансфер до банкета будет организован</p>
     </div>
 
-    <!-- Соцсети -->
     <div class="glass-card" data-aos="fade-up" style="text-align:center;">
         <h2>Свяжитесь с нами</h2>
         <div class="social-links">
@@ -637,13 +616,11 @@
     <p>Ждём вас с нетерпением! 💕</p>
 </footer>
 
-<!-- Плавающие кнопки -->
 <div class="floating-buttons">
     <button class="float-btn" id="calendarBtn">📅 Добавить в календарь</button>
     <button class="float-btn secret-btn" id="secretBtn">💌 Секретик</button>
 </div>
 
-<!-- Модалка секрета -->
 <div id="secretModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeSecretModal">&times;</span>
@@ -658,7 +635,6 @@
 <script>
     AOS.init({ duration: 800, once: false, offset: 100 });
 
-    // Таймер
     const weddingDate = new Date(2026, 7, 22, 0, 0, 0).getTime();
     function updateTimer() {
         const now = new Date().getTime();
@@ -672,7 +648,6 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // RSVP
     const rsvpRadios = document.querySelectorAll('input[name="rsvp"]');
     const rsvpMessageDiv = document.getElementById('rsvpMessage');
 
@@ -700,13 +675,12 @@
         });
     });
 
-    // ========== БЛОК "ПОНЯЛ" С ШУТКОЙ ==========
     const understandBtn = document.getElementById('understandBtn');
     const giftBlock = document.querySelector('.gift-block');
     
     understandBtn.addEventListener('click', () => {
         const jokes = [
-            '🥴 Спасибо, что поняли нас! А теперь ждите... барабанная дробь... мы закажем ещё закусок! 🍕',
+            '🥴 Спасибо, что поняли нас! А теперь ждите... мы закажем ещё закусок! 🍕',
             '🍾 Спасибо! Вы — наш человек! Будем пить за ваше здоровье первыми!',
             '🧠 Спасибо, что поняли! А мы поняли, что вы — настоящий друг! 😎',
             '💪 Крепкое решение! Закуски уже в пути! Спасибо, что вы с нами!'
@@ -730,7 +704,6 @@
         setTimeout(() => msgDiv.remove(), 3000);
     });
 
-    // ========== АЛКОГОЛЬ С ШУТКАМИ ПРИ ПЕРЕБОРЕ ==========
     let selectedDrinks = [];
     const drinkCards = document.querySelectorAll('.drink-card');
     const alcoholStatus = document.getElementById('alcoholSelectionStatus');
@@ -788,7 +761,6 @@
         });
     });
 
-    // ========== КАЛЕНДАРЬ (ICS) ==========
     const calendarBtn = document.getElementById('calendarBtn');
     
     calendarBtn.addEventListener('click', () => {
@@ -834,7 +806,6 @@ END:VCALENDAR`;
         setTimeout(() => msg.remove(), 3000);
     });
 
-    // Секрет
     const secretBtn = document.getElementById('secretBtn');
     const secretModal = document.getElementById('secretModal');
     const closeSecret = document.getElementById('closeSecretModal');
