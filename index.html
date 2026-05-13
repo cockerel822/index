@@ -202,7 +202,7 @@
             letter-spacing: 1px;
         }
 
-        /* RSVP - НОВАЯ ВЕРСИЯ С РАДИОКНОПКАМИ */
+        /* RSVP */
         .rsvp-radio-group {
             display: flex;
             gap: 2rem;
@@ -263,7 +263,58 @@
             }
         }
 
-        /* Алкоголь - ЖИВОЙ */
+        /* Блок про подарки (вино вместо цветов) */
+        .gift-block {
+            background: linear-gradient(135deg, rgba(212,175,122,0.15), rgba(201,160,108,0.1));
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(212,175,122,0.5);
+            transition: all 0.3s;
+        }
+
+        .gift-block:hover {
+            transform: scale(1.01);
+            background: linear-gradient(135deg, rgba(212,175,122,0.2), rgba(201,160,108,0.15));
+        }
+
+        .gift-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-title {
+            font-size: 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #c9a06c;
+            margin-bottom: 1rem;
+        }
+
+        .gift-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #8b5e5e;
+        }
+
+        .gift-btn {
+            background: #c9a06c;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gift-btn:hover {
+            background: #b88855;
+            transform: scale(1.02);
+        }
+
+        /* Алкоголь */
         .drinks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -292,7 +343,6 @@
             background: #f9ede8;
             border-color: #c9a06c;
             transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(201,160,108,0.2);
         }
 
         .drink-card.selected .drink-icon {
@@ -433,31 +483,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        .modal-content input {
-            width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border: 1px solid #d4af7a;
-            border-radius: 2rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .modal-content button {
-            background: #c9a06c;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 2rem;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.2s;
-        }
-
-        .modal-content button:hover {
-            background: #b88855;
-            transform: scale(1.02);
-        }
-
         .close-modal {
             float: right;
             font-size: 1.8rem;
@@ -535,7 +560,7 @@
         </div>
     </div>
 
-    <!-- RSVP - ИСПРАВЛЕНО! РАДИОКНОПКИ -->
+    <!-- RSVP -->
     <div class="glass-card" data-aos="fade-left">
         <h2>Подтвердите присутствие</h2>
         <p style="color:#9e6b6b;">Пожалуйста, ответьте до 1 июля 2026</p>
@@ -552,10 +577,22 @@
         <div id="rsvpMessage" class="rsvp-message"></div>
     </div>
 
-    <!-- Алкоголь - ЖИВОЙ -->
+    <!-- Блок про подарки (вино вместо цветов) -->
+    <div class="gift-block" data-aos="fade-up">
+        <div class="gift-icon">🥂🍇✨</div>
+        <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
+        <div class="gift-text">
+            Друзья, мы очень трепетно относимся к вашему вниманию. <br>
+            Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! 🥴<br>
+            <strong>Крепко, искристо, вкусно — что по душе, то и везите!</strong>
+        </div>
+        <button class="gift-btn" id="understandBtn">Понял 👌</button>
+    </div>
+
+    <!-- Алкоголь опрос -->
     <div class="glass-card" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
-        <p>Выберите до 3 вариантов 🥂</p>
+        <p>Выберите до 3 вариантов 🥂 (но помните про лимит 😉)</p>
         <div class="drinks-grid" id="drinksGrid">
             <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div class="drink-name">Вино</div></div>
             <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div class="drink-name">Водка</div></div>
@@ -591,7 +628,7 @@
             <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
             <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
         </div>
-        <p style="color:#9e6b6b;">Дресс-код свободный, приветствуются светлые оттенки 🌸</p>
+        <p style="color:#9e6b6b;">Дресс-код свободный, но классно, если будете в светлых тонах 🌸</p>
     </div>
 </div>
 
@@ -600,23 +637,10 @@
     <p>Ждём вас с нетерпением! 💕</p>
 </footer>
 
-<!-- Кнопки -->
+<!-- Плавающие кнопки -->
 <div class="floating-buttons">
-    <button class="float-btn" id="remindBtn">🔔 Напомнить</button>
+    <button class="float-btn" id="calendarBtn">📅 Добавить в календарь</button>
     <button class="float-btn secret-btn" id="secretBtn">💌 Секретик</button>
-</div>
-
-<!-- Модалка напоминания -->
-<div id="remindModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeRemindModal">&times;</span>
-        <div style="font-size:2rem;">📅🥂</div>
-        <h3 style="color:#8b5e5e;">Напомнить о свадьбе</h3>
-        <input type="text" id="remindName" placeholder="Ваше имя">
-        <input type="email" id="remindEmail" placeholder="Ваш email">
-        <button id="sendRemindBtn">Отправить</button>
-        <p id="remindStatus" style="margin-top:0.8rem; font-size:0.85rem;"></p>
-    </div>
 </div>
 
 <!-- Модалка секрета -->
@@ -648,18 +672,18 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // ========== RSVP - ПОЛНОСТЬЮ ПЕРЕПИСАНО ==========
+    // RSVP
     const rsvpRadios = document.querySelectorAll('input[name="rsvp"]');
     const rsvpMessageDiv = document.getElementById('rsvpMessage');
 
     function updateRSVPMessage(value) {
         if(value === 'yes') {
-            rsvpMessageDiv.innerHTML = '🎉 Спасибо большое! Ждём вас с огромной радостью! Готовьте танцевальные ноги — будет незабываемо! 💕';
+            rsvpMessageDiv.innerHTML = '🎉 Спасибо! Ждём вас с радостью! Готовьтесь — будет жарко! 🔥💕';
             rsvpMessageDiv.style.background = 'rgba(201,160,108,0.15)';
             rsvpMessageDiv.style.color = '#8b5e5e';
             rsvpMessageDiv.style.border = '1px solid #d4af7a';
         } else if(value === 'no') {
-            rsvpMessageDiv.innerHTML = '💔 Очень жаль, что не сможете быть. Спасибо, что предупредили! Чокнемся за ваше здоровье 🥂';
+            rsvpMessageDiv.innerHTML = '💔 Жаль, что не сможете. Чокнемся за ваше здоровье! 🥂 До встречи в другой раз!';
             rsvpMessageDiv.style.background = 'rgba(200,150,140,0.1)';
             rsvpMessageDiv.style.color = '#9e6b6b';
             rsvpMessageDiv.style.border = '1px solid #e8ddd5';
@@ -672,43 +696,52 @@
 
     rsvpRadios.forEach(radio => {
         radio.addEventListener('change', function() {
-            if(this.checked) {
-                updateRSVPMessage(this.value);
-            }
+            if(this.checked) updateRSVPMessage(this.value);
         });
     });
 
-    // ========== АЛКОГОЛЬ - С ШУТКАМИ И АНИМАЦИЕЙ ==========
+    // ========== БЛОК "ПОНЯЛ" С ШУТКОЙ ==========
+    const understandBtn = document.getElementById('understandBtn');
+    const giftBlock = document.querySelector('.gift-block');
+    
+    understandBtn.addEventListener('click', () => {
+        const jokes = [
+            '🥴 Спасибо, что поняли нас! А теперь ждите... барабанная дробь... мы закажем ещё закусок! 🍕',
+            '🍾 Спасибо! Вы — наш человек! Будем пить за ваше здоровье первыми!',
+            '🧠 Спасибо, что поняли! А мы поняли, что вы — настоящий друг! 😎',
+            '💪 Крепкое решение! Закуски уже в пути! Спасибо, что вы с нами!'
+        ];
+        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+        
+        const msgDiv = document.createElement('div');
+        msgDiv.innerHTML = randomJoke;
+        msgDiv.style.marginTop = '1rem';
+        msgDiv.style.padding = '0.8rem';
+        msgDiv.style.background = 'rgba(212,175,122,0.2)';
+        msgDiv.style.borderRadius = '2rem';
+        msgDiv.style.animation = 'fadeInUp 0.4s ease-out';
+        
+        const oldMsg = giftBlock.querySelector('.gift-joke');
+        if(oldMsg) oldMsg.remove();
+        
+        msgDiv.classList.add('gift-joke');
+        giftBlock.appendChild(msgDiv);
+        
+        setTimeout(() => msgDiv.remove(), 3000);
+    });
+
+    // ========== АЛКОГОЛЬ С ШУТКАМИ ПРИ ПЕРЕБОРЕ ==========
     let selectedDrinks = [];
     const drinkCards = document.querySelectorAll('.drink-card');
     const alcoholStatus = document.getElementById('alcoholSelectionStatus');
 
-    const jokes = [
-        '😄 Отличный набор! Бармен уже в шоке...',
-        '🍻 Ого, с таким набором вечер точно удастся!',
-        '🎉 Закуски уже заказали, не переживайте!',
-        '💪 Крепкий выбор! Готовьте тосты!',
-        '🥂 Шампанское + ваши напитки = идеальный вечер!',
-        '🍷 Отличный вкус! Мы вас поняли!'
+    const limitJokes = [
+        '😄 Эй, алко-рекордсмен, хватит и этого!',
+        '🍻 Ого, ты собираешься нас напоить? Стоп-стоп, 3 максимум!',
+        '🧃 Сбавь обороты, алко-маньяк! 3 напитка — лимит любви 😘',
+        '🥴 Трезвая голова — хорошо, но 3 коктейля — норма! Не жадничай!',
+        '🎉 Дружище, ты крут, но больше трёх вариантов — перебор! Давай без фанатизма!'
     ];
-
-    function showJoke() {
-        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-        alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. ${randomJoke} ✨`;
-        alcoholStatus.style.background = 'rgba(212,175,122,0.15)';
-        alcoholStatus.style.padding = '0.8rem';
-        alcoholStatus.style.borderRadius = '2rem';
-        
-        setTimeout(() => {
-            if(selectedDrinks.length > 0) {
-                alcoholStatus.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')}. Спасибо! 🥂 ✨`;
-            } else {
-                alcoholStatus.innerHTML = '';
-                alcoholStatus.style.background = 'transparent';
-                alcoholStatus.style.padding = '0';
-            }
-        }, 3000);
-    }
 
     drinkCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -723,14 +756,15 @@
                     alcoholStatus.style.background = 'transparent';
                     alcoholStatus.style.padding = '0';
                 } else {
-                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Спасибо! 🥂 ✨`;
+                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Класс! 🥂 ✨`;
                     alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
                     alcoholStatus.style.padding = '0.5rem';
                     alcoholStatus.style.borderRadius = '2rem';
                 }
             } else {
                 if(selectedDrinks.length >= 3) {
-                    alcoholStatus.innerHTML = '❓ Можно выбрать не больше 3 напитков! Вы и так щедры 🍻';
+                    const randomJoke = limitJokes[Math.floor(Math.random() * limitJokes.length)];
+                    alcoholStatus.innerHTML = `❓ ${randomJoke}`;
                     alcoholStatus.style.background = 'rgba(200,150,140,0.15)';
                     alcoholStatus.style.padding = '0.5rem';
                     alcoholStatus.style.borderRadius = '2rem';
@@ -746,56 +780,67 @@
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
-                
-                if(selectedDrinks.length === 3) {
-                    showJoke();
-                } else {
-                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
-                    alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
-                    alcoholStatus.style.padding = '0.5rem';
-                    alcoholStatus.style.borderRadius = '2rem';
-                }
+                alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
+                alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
+                alcoholStatus.style.padding = '0.5rem';
+                alcoholStatus.style.borderRadius = '2rem';
             }
         });
     });
 
-    // Модалки
-    const remindBtn = document.getElementById('remindBtn');
-    const remindModal = document.getElementById('remindModal');
-    const closeRemind = document.getElementById('closeRemindModal');
-    const sendRemindBtn = document.getElementById('sendRemindBtn');
-    const remindStatus = document.getElementById('remindStatus');
+    // ========== КАЛЕНДАРЬ (ICS) ==========
+    const calendarBtn = document.getElementById('calendarBtn');
+    
+    calendarBtn.addEventListener('click', () => {
+        const eventTitle = 'Свадьба Андрея и Дарьи';
+        const startDate = '20260822T154000';
+        const endDate = '20260823T020000';
+        const location = 'ЗАГС: Свободный пер., 5; Банкет: отель Тверь, Петербургское ш., 130';
+        const description = 'Свадьба Андрея и Дарьи! Церемония в 15:40, банкет с 17:00. Карта ЗАГСа: https://yandex.ru/maps/-/CPgRn0kJ, Карта отеля: https://yandex.ru/maps/-/CPgRrYjS. Ждём вас! 💕';
+        
+        const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OurWedding//EN
+BEGIN:VEVENT
+UID:${Date.now()}@wedding
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:${startDate}
+DTEND:${endDate}
+SUMMARY:${eventTitle}
+DESCRIPTION:${description}
+LOCATION:${location}
+END:VEVENT
+END:VCALENDAR`;
+        
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'wedding_invite.ics';
+        link.click();
+        URL.revokeObjectURL(link.href);
+        
+        const msg = document.createElement('div');
+        msg.innerHTML = '✅ Добавлено в календарь! Ждём вас! 📅💕';
+        msg.style.position = 'fixed';
+        msg.style.bottom = '120px';
+        msg.style.right = '25px';
+        msg.style.background = '#c9a06c';
+        msg.style.color = 'white';
+        msg.style.padding = '10px 20px';
+        msg.style.borderRadius = '2rem';
+        msg.style.zIndex = '1001';
+        msg.style.fontSize = '0.9rem';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 3000);
+    });
 
-    remindBtn.onclick = () => remindModal.style.display = 'flex';
-    closeRemind.onclick = () => remindModal.style.display = 'none';
-    sendRemindBtn.onclick = () => {
-        const name = document.getElementById('remindName').value.trim();
-        const email = document.getElementById('remindEmail').value.trim();
-        if(!name || !email) {
-            remindStatus.innerText = '❓ Укажите имя и email';
-            remindStatus.style.color = '#c9a06c';
-            return;
-        }
-        remindStatus.innerText = '✅ Спасибо! Напомним за 3 и за 1 день до свадьбы 💕';
-        remindStatus.style.color = '#8b5e5e';
-        document.getElementById('remindName').value = '';
-        document.getElementById('remindEmail').value = '';
-        setTimeout(() => {
-            remindModal.style.display = 'none';
-            remindStatus.innerText = '';
-        }, 2000);
-    };
-
+    // Секрет
     const secretBtn = document.getElementById('secretBtn');
     const secretModal = document.getElementById('secretModal');
     const closeSecret = document.getElementById('closeSecretModal');
     secretBtn.onclick = () => secretModal.style.display = 'flex';
     closeSecret.onclick = () => secretModal.style.display = 'none';
-
-    window.onclick = (e) => {
-        if(e.target === remindModal) remindModal.style.display = 'none';
-        if(e.target === secretModal) secretModal.style.display = 'none';
-    };
+    window.onclick = (e) => { if(e.target === secretModal) secretModal.style.display = 'none'; };
 </script>
 </body>
 </html>
