@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #fef9f0;
-            color: #2c2b28;
+            background-color: #f0f6ef;
+            color: #2c3e2b;
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
             overflow-x: hidden;
@@ -30,7 +30,7 @@
         h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #d4b88c;
+            border-left: 4px solid #8bc48a;
             padding-left: 1rem;
             display: inline-block;
         }
@@ -41,49 +41,107 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero с анимацией */
+        /* Hero с анимацией и прозрачностью */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat;
             background-attachment: fixed;
             color: white;
             position: relative;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(1.05); }
-            to { opacity: 1; transform: scale(1); }
         }
 
         .hero-content {
-            background: rgba(44, 43, 40, 0.65);
-            backdrop-filter: blur(5px);
+            background: rgba(44, 43, 40, 0.35);
+            backdrop-filter: blur(2px);
             padding: 2.5rem;
-            border-radius: 2rem;
+            border-radius: 3rem;
             max-width: 90%;
-            animation: slideUp 1s ease-out;
+            width: 100%;
+        }
+
+        /* Аббревиатура А&Д */
+        .initials {
+            font-size: 8rem;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 8px;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Имена по бокам */
+        .names-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 3rem;
+            gap: 2rem;
+        }
+
+        .name-left, .name-right {
+            font-size: 2.2rem;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .name-left {
+            animation-delay: 0.3s;
+            transform-origin: left;
+        }
+
+        .name-right {
+            animation-delay: 0.6s;
+            transform-origin: right;
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
+        .date-badge {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
             letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Таймер */
         .timer-section {
-            background: #fff9f2;
+            background: #f5faf4;
             text-align: center;
             padding: 3rem 1rem;
         }
@@ -112,12 +170,12 @@
         .timer-number {
             font-size: 3rem;
             font-weight: 600;
-            color: #a87542;
+            color: #6aa86a;
         }
 
         /* Блок приглашения */
         .invitation-text {
-            background: linear-gradient(135deg, #fff9f2 0%, #fef5e8 100%);
+            background: linear-gradient(135deg, #f5faf4 0%, #edf5ea 100%);
             border-radius: 2rem;
             padding: 2.5rem;
             text-align: center;
@@ -152,23 +210,23 @@
         }
 
         .rsvp-yes {
-            background: #a87542;
+            background: #6aa86a;
             color: white;
         }
 
         .rsvp-yes:hover {
-            background: #8b5e32;
+            background: #528a52;
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(168,117,66,0.3);
+            box-shadow: 0 5px 15px rgba(106,168,106,0.3);
         }
 
         .rsvp-no {
-            background: #e0d4c4;
-            color: #2c2b28;
+            background: #d4e0cf;
+            color: #2c3e2b;
         }
 
         .rsvp-no:hover {
-            background: #c9b89e;
+            background: #bcd0b5;
             transform: scale(1.05);
         }
 
@@ -188,7 +246,7 @@
 
         /* Алкоголь опросник */
         .alcohol-poll {
-            background: #fff9f2;
+            background: #f5faf4;
             border-radius: 2rem;
             padding: 2rem;
             margin: 2rem 0;
@@ -217,8 +275,8 @@
         }
 
         .drink-card.selected {
-            border-color: #a87542;
-            background: #fef5e8;
+            border-color: #6aa86a;
+            background: #edf5ea;
             transform: scale(1.02);
         }
 
@@ -247,12 +305,7 @@
             font-weight: 600;
             margin: 0.5rem 0;
             font-size: 1.1rem;
-        }
-
-        .selection-badge {
-            margin-top: 1rem;
-            font-size: 1rem;
-            color: #a87542;
+            color: #2c3e2b;
         }
 
         /* Кнопки соцсетей */
@@ -268,7 +321,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.8rem 1.8rem;
-            background: #2c2b28;
+            background: #2c3e2b;
             color: white;
             text-decoration: none;
             border-radius: 3rem;
@@ -279,15 +332,15 @@
         .social-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            background: #a87542;
+            background: #6aa86a;
         }
 
-        /* СЕКРЕТНАЯ КНОПКА */
+        /* Секретная кнопка */
         .secret-button {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: #a87542;
+            background: #6aa86a;
             color: white;
             border: none;
             border-radius: 50px;
@@ -300,16 +353,16 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             backdrop-filter: blur(4px);
-            background: rgba(168, 117, 66, 0.95);
+            background: rgba(106, 168, 106, 0.95);
         }
 
         .secret-button:hover {
             transform: scale(1.05) translateY(-3px);
-            background: #8b5e32;
+            background: #528a52;
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
 
-        /* Модальное окно для секрета */
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -325,7 +378,7 @@
         }
 
         .modal-content {
-            background: #fef9f0;
+            background: #f0f6ef;
             max-width: 500px;
             width: 90%;
             padding: 2rem;
@@ -333,7 +386,7 @@
             text-align: center;
             position: relative;
             animation: slideUpModal 0.4s ease-out;
-            border: 1px solid #d4b88c;
+            border: 1px solid #8bc48a;
         }
 
         @keyframes slideUpModal {
@@ -350,13 +403,7 @@
         .modal-content h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #a87542;
-        }
-
-        .modal-content p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            line-height: 1.5;
+            color: #6aa86a;
         }
 
         .close-modal {
@@ -365,7 +412,7 @@
             right: 20px;
             font-size: 2rem;
             cursor: pointer;
-            color: #a87542;
+            color: #6aa86a;
             transition: 0.2s;
         }
 
@@ -391,13 +438,15 @@
         footer {
             text-align: center;
             padding: 2rem;
-            background: #2c2b28;
-            color: #fef9f0;
+            background: #2c3e2b;
+            color: #f0f6ef;
             margin-top: 2rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .initials { font-size: 4rem; letter-spacing: 4px; }
+            .name-left, .name-right { font-size: 1.2rem; }
+            .names-container { gap: 1rem; }
             .drinks-grid { grid-template-columns: repeat(2, 1fr); }
             .rsvp-options { flex-direction: column; align-items: center; }
             .rsvp-btn { width: 80%; }
@@ -409,9 +458,13 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Андрей ❤️ Дарья</h1>
-        <div class="date">22 августа 2026</div>
-        <div style="font-size:1.2rem; margin-top:1rem;">Торжественная церемония 15:40 | Банкет 17:00</div>
+        <div class="initials">А&Д</div>
+        <div class="names-container">
+            <div class="name-left">Андрей</div>
+            <div class="name-right">Дарья</div>
+        </div>
+        <div class="date-badge">22 августа 2026</div>
+        <div style="font-size:1rem; margin-top:1rem;">Церемония 15:40 | Банкет 17:00</div>
     </div>
 </section>
 
@@ -434,7 +487,7 @@
             Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни.<br>
             Ваше присутствие — лучший подарок для нас.
         </p>
-        <p style="font-style: italic; color: #a87542;">✨ Ждём вас в этот особенный день ✨</p>
+        <p style="font-style: italic; color: #6aa86a;">✨ Ждём вас в этот особенный день ✨</p>
     </div>
 
     <!-- Простая RSVP форма -->
@@ -448,7 +501,7 @@
         <div id="rsvpMessage" class="rsvp-message"></div>
     </div>
 
-    <!-- Опросник по алкоголю с картинками -->
+    <!-- Опросник по алкоголю -->
     <div class="alcohol-poll" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
         <p>Выберите до 3 вариантов, чтобы мы знали, чем побаловать ✨</p>
@@ -474,25 +527,25 @@
                 <div class="drink-name">Самогон</div>
             </div>
         </div>
-        <div id="alcoholSelectionStatus" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #a87542;"></div>
+        <div id="alcoholSelectionStatus" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #6aa86a;"></div>
     </div>
 
-    <!-- Локации (кратко) -->
+    <!-- Локации -->
     <div data-aos="fade-up">
         <h2>Места проведения</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
             <div style="flex:1; background: white; padding: 1rem; border-radius: 1rem;">
                 <h3>📖 ЗАГС</h3>
                 <p>Свободный пер., 5<br>🕒 15:40</p>
-                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#a87542;">Карта →</a>
+                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#6aa86a;">Карта →</a>
             </div>
             <div style="flex:1; background: white; padding: 1rem; border-radius: 1rem;">
                 <h3>🍾 Отель «Тверь»</h3>
                 <p>Петербургское ш., 130<br>🕒 17:00</p>
-                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#a87542;">Карта →</a>
+                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#6aa86a;">Карта →</a>
             </div>
         </div>
-        <p style="background:#f0e3d4; padding:0.8rem; border-radius:1rem; text-align:center;">🚌 Трансфер до банкета будет организован. О церемонии позаботьтесь самостоятельно, если планируете быть.</p>
+        <p style="background:#edf5ea; padding:0.8rem; border-radius:1rem; text-align:center;">🚌 Трансфер до банкета будет организован. О церемонии позаботьтесь самостоятельно.</p>
     </div>
 
     <!-- Связь с нами -->
@@ -507,39 +560,33 @@
                 💖 Дарья
             </a>
         </div>
-        <p style="margin-top: 2rem; font-style: italic;">Дресс-код свободный, но будем рады светлым оттенкам ✨</p>
+        <p style="margin-top: 2rem; font-style: italic;">Дресс-код свободный, будем рады светлым и нежным оттенкам 🌿</p>
     </div>
 </div>
 
 <footer>
     <p>Андрей & Дарья · 22 августа 2026 · Тверь</p>
-    <p>Ждём вас с нетерпением! 💑</p>
+    <p>Ждём вас с нетерпением! 💚</p>
 </footer>
 
-<!-- СЕКРЕТНАЯ КНОПКА (в углу) -->
-<button class="secret-button" id="secretBtn">💌 Секретик</button>
+<!-- Секретная кнопка -->
+<button class="secret-button" id="secretBtn">💚 Секретик</button>
 
-<!-- Модальное окно для второго дня -->
 <div id="secretModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
-        <div class="modal-icon">🤫✨</div>
+        <div class="modal-icon">🤫🌿</div>
         <h3>Секрет второго дня</h3>
         <p>🌙 У нас будет продолжение!<br>
         Второй день — тёплые посиделки, игры и душевные разговоры. Атмосфера обещает быть сказочной...</p>
-        <p>🎁 <strong>Скоро все узнаете!</strong> Мы обязательно всё расскажем — следите за новостями 💌</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color:#a87542;">✨ А пока — сохраните интригу ✨</p>
+        <p>🎁 <strong>Скоро все узнаете!</strong> Мы обязательно всё расскажем — следите за новостями 💚</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color:#6aa86a;">✨ А пока — сохраните интригу ✨</p>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    // Инициализация AOS анимаций
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+    AOS.init({ duration: 1000, once: true, offset: 100 });
 
     // Таймер
     const weddingDate = new Date(2026, 7, 22, 0, 0, 0).getTime();
@@ -561,7 +608,7 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // RSVP логика
+    // RSVP
     function handleRSVP(answer) {
         const messageDiv = document.getElementById('rsvpMessage');
         if (answer === 'yes') {
@@ -576,12 +623,10 @@
         messageDiv.style.padding = '1rem';
         messageDiv.style.borderRadius = '1rem';
         messageDiv.style.animation = 'bounceIn 0.6s ease-out';
-        setTimeout(() => {
-            messageDiv.style.animation = '';
-        }, 600);
+        setTimeout(() => messageDiv.style.animation = '', 600);
     }
 
-    // Алкоголь: выбор до 3-х
+    // Алкоголь
     let selectedDrinks = [];
     const drinkCards = document.querySelectorAll('.drink-card');
     const statusSpan = document.getElementById('alcoholSelectionStatus');
@@ -611,7 +656,7 @@
             
             if (selectedDrinks.length > 0) {
                 statusSpan.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🍻 Обязательно приготовим ✨`;
-                statusSpan.style.background = '#f0e3d4';
+                statusSpan.style.background = '#edf5ea';
                 statusSpan.style.padding = '0.5rem';
                 statusSpan.style.borderRadius = '2rem';
             } else {
@@ -621,9 +666,9 @@
         });
     });
 
-    // Конфетти (эмодзи)
+    // Конфетти
     function createFloatingElement() {
-        const emojis = ['💑', '💍', '🥂', '🎉', '✨', '❤️', '🍾', '💐'];
+        const emojis = ['💑', '💍', '🥂', '🎉', '✨', '💚', '🍾', '🌿'];
         const el = document.createElement('div');
         el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
         el.style.position = 'fixed';
@@ -643,35 +688,21 @@
     }
     
     setInterval(() => {
-        for(let i = 0; i < 3; i++) {
-            setTimeout(() => createFloatingElement(), i * 200);
-        }
+        for(let i = 0; i < 3; i++) setTimeout(() => createFloatingElement(), i * 200);
     }, 7000);
     
     window.addEventListener('load', () => {
-        for(let i = 0; i < 5; i++) {
-            setTimeout(() => createFloatingElement(), i * 300);
-        }
+        for(let i = 0; i < 5; i++) setTimeout(() => createFloatingElement(), i * 300);
     });
 
-    // ========== СЕКРЕТНАЯ КНОПКА: модальное окно ==========
+    // Секретная кнопка
     const secretBtn = document.getElementById('secretBtn');
     const modal = document.getElementById('secretModal');
     const closeBtn = document.getElementById('closeModalBtn');
 
-    secretBtn.addEventListener('click', () => {
-        modal.style.display = 'flex';
-    });
-
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+    secretBtn.addEventListener('click', () => modal.style.display = 'flex');
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 </script>
 </body>
 </html>
