@@ -50,15 +50,15 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
                         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             position: relative;
         }
 
         .hero-content {
             position: relative;
-            background: rgba(255, 248, 240, 0.25);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 248, 240, 0.3);
+            backdrop-filter: blur(10px);
             border-radius: 3rem;
             padding: 3rem;
             max-width: 90%;
@@ -102,9 +102,9 @@
 
         /* Карточки */
         .glass-card {
-            background: rgba(255, 248, 240, 0.85);
+            background: rgba(255, 248, 240, 0.88);
             backdrop-filter: blur(8px);
-            border-radius: 1.5rem;
+            border-radius: 1.8rem;
             padding: 2rem;
             margin: 2rem 0;
             border: 1px solid rgba(212, 175, 122, 0.3);
@@ -114,7 +114,7 @@
 
         .glass-card:hover {
             transform: translateY(-3px);
-            background: rgba(255, 248, 240, 0.95);
+            background: rgba(255, 248, 240, 0.96);
             border-color: rgba(212, 175, 122, 0.6);
         }
 
@@ -128,16 +128,16 @@
 
         .photo-card {
             background: rgba(255,248,240,0.95);
-            border-radius: 1rem;
+            border-radius: 1.2rem;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .photo-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
         }
 
         .photo-placeholder {
@@ -147,8 +147,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #d4af7a;
+            transition: all 0.3s;
+        }
+
+        .photo-card:hover .photo-placeholder {
+            transform: scale(1.05);
         }
 
         .photo-caption {
@@ -163,24 +168,25 @@
         .timer {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
             margin: 2rem 0;
         }
 
         .timer-block {
             background: rgba(255,248,240,0.8);
-            padding: 1.2rem 1.8rem;
+            padding: 1.2rem 1.5rem;
             border-radius: 1.5rem;
-            min-width: 95px;
+            min-width: 90px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 1px solid rgba(212,175,122,0.3);
         }
 
         .timer-block:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) translateY(-5px);
             background: rgba(255,248,240,0.95);
+            border-color: #d4af7a;
         }
 
         .timer-number {
@@ -191,48 +197,49 @@
         }
 
         .timer-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #9e6b6b;
             letter-spacing: 1px;
         }
 
-        /* RSVP - ИСПРАВЛЕНО */
-        .rsvp-options {
+        /* RSVP - НОВАЯ ВЕРСИЯ С РАДИОКНОПКАМИ */
+        .rsvp-radio-group {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             justify-content: center;
             margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
 
-        .rsvp-btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 3rem;
+        .rsvp-radio {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             cursor: pointer;
+            padding: 0.8rem 1.8rem;
+            background: rgba(255,248,240,0.8);
+            border-radius: 3rem;
             transition: all 0.3s ease;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            border: 1px solid rgba(212,175,122,0.3);
         }
 
-        .rsvp-yes {
-            background: #c9a06c;
-            color: white;
-        }
-
-        .rsvp-yes:hover {
-            background: #b88855;
+        .rsvp-radio:hover {
             transform: scale(1.02);
+            background: rgba(255,248,240,0.95);
+            border-color: #d4af7a;
         }
 
-        .rsvp-no {
-            background: #e8ddd5;
-            color: #8b5e5e;
+        .rsvp-radio input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #c9a06c;
         }
 
-        .rsvp-no:hover {
-            background: #dccfc5;
-            transform: scale(1.02);
+        .rsvp-radio label {
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
         .rsvp-message {
@@ -240,11 +247,23 @@
             padding: 0.8rem;
             border-radius: 2rem;
             margin-top: 1rem;
-            font-size: 0.95rem;
-            transition: all 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            animation: slideDown 0.4s ease-out;
         }
 
-        /* Алкоголь */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Алкоголь - ЖИВОЙ */
         .drinks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -254,29 +273,67 @@
 
         .drink-card {
             background: rgba(255,248,240,0.9);
-            border-radius: 1rem;
+            border-radius: 1.2rem;
             padding: 1.2rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 1px solid rgba(212,175,122,0.2);
         }
 
         .drink-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             background: white;
             border-color: #d4af7a;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
 
         .drink-card.selected {
             background: #f9ede8;
             border-color: #c9a06c;
             transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(201,160,108,0.2);
+        }
+
+        .drink-card.selected .drink-icon {
+            animation: bounceOnce 0.4s ease;
+        }
+
+        @keyframes bounceOnce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         .drink-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .drink-name {
+            font-weight: 500;
+            color: #8b5e5e;
+        }
+
+        .alcohol-status {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Социальные кнопки */
@@ -292,7 +349,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.7rem 1.6rem;
+            padding: 0.8rem 1.8rem;
             background: #c9a06c;
             color: white;
             text-decoration: none;
@@ -303,7 +360,8 @@
 
         .social-btn:hover {
             background: #b88855;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(201,160,108,0.3);
         }
 
         /* Плавающие кнопки */
@@ -318,7 +376,7 @@
         }
 
         .float-btn {
-            background: rgba(201, 160, 108, 0.9);
+            background: rgba(201, 160, 108, 0.92);
             backdrop-filter: blur(4px);
             color: white;
             border: none;
@@ -326,12 +384,12 @@
             padding: 10px 22px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             font-family: 'Inter', sans-serif;
         }
 
         .float-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
             background: #c9a06c;
         }
 
@@ -367,6 +425,12 @@
             border-radius: 1.5rem;
             text-align: center;
             border: 1px solid #d4af7a;
+            animation: modalPop 0.3s ease-out;
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .modal-content input {
@@ -386,6 +450,12 @@
             border-radius: 2rem;
             cursor: pointer;
             margin-top: 1rem;
+            transition: all 0.2s;
+        }
+
+        .modal-content button:hover {
+            background: #b88855;
+            transform: scale(1.02);
         }
 
         .close-modal {
@@ -393,12 +463,17 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #c9a06c;
+            transition: all 0.2s;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: rgba(75, 55, 45, 0.9);
+            background: rgba(75, 55, 45, 0.92);
             color: #f5e6e0;
             margin-top: 2rem;
         }
@@ -407,8 +482,8 @@
             .initials { font-size: 4rem; letter-spacing: 4px; }
             .timer-number { font-size: 2rem; }
             .photo-placeholder { height: 200px; }
-            .rsvp-options { flex-direction: column; align-items: center; }
-            .rsvp-btn { width: 80%; }
+            .rsvp-radio-group { gap: 1rem; }
+            .rsvp-radio { padding: 0.6rem 1.2rem; }
         }
     </style>
 </head>
@@ -460,29 +535,35 @@
         </div>
     </div>
 
-    <!-- RSVP - ИСПРАВЛЕНО -->
+    <!-- RSVP - ИСПРАВЛЕНО! РАДИОКНОПКИ -->
     <div class="glass-card" data-aos="fade-left">
         <h2>Подтвердите присутствие</h2>
         <p style="color:#9e6b6b;">Пожалуйста, ответьте до 1 июля 2026</p>
-        <div class="rsvp-options">
-            <button class="rsvp-btn rsvp-yes" id="rsvpYesBtn">✅ Я буду!</button>
-            <button class="rsvp-btn rsvp-no" id="rsvpNoBtn">❌ Не смогу</button>
+        <div class="rsvp-radio-group">
+            <label class="rsvp-radio">
+                <input type="radio" name="rsvp" value="yes" id="rsvpYes">
+                <label for="rsvpYes">✅ Да, я буду!</label>
+            </label>
+            <label class="rsvp-radio">
+                <input type="radio" name="rsvp" value="no" id="rsvpNo">
+                <label for="rsvpNo">❌ Не смогу прийти</label>
+            </label>
         </div>
         <div id="rsvpMessage" class="rsvp-message"></div>
     </div>
 
-    <!-- Алкоголь -->
+    <!-- Алкоголь - ЖИВОЙ -->
     <div class="glass-card" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
         <p>Выберите до 3 вариантов 🥂</p>
         <div class="drinks-grid" id="drinksGrid">
-            <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
-            <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
-            <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
-            <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
-            <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div>Шампанское</div></div>
+            <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div class="drink-name">Вино</div></div>
+            <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div class="drink-name">Водка</div></div>
+            <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div class="drink-name">Виски</div></div>
+            <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div class="drink-name">Коньяк</div></div>
+            <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div class="drink-name">Шампанское</div></div>
         </div>
-        <div id="alcoholSelectionStatus" style="text-align:center; margin-top:1rem; color:#c9a06c; font-size:0.9rem;"></div>
+        <div id="alcoholSelectionStatus" class="alcohol-status"></div>
     </div>
 
     <!-- Локации -->
@@ -510,7 +591,7 @@
             <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
             <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
         </div>
-        <p style="color:#9e6b6b;">Дресс-код свободный, приветствуются светлые оттенки</p>
+        <p style="color:#9e6b6b;">Дресс-код свободный, приветствуются светлые оттенки 🌸</p>
     </div>
 </div>
 
@@ -567,40 +648,67 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // RSVP - ПОЛНОСТЬЮ ИСПРАВЛЕНО
-    const rsvpYesBtn = document.getElementById('rsvpYesBtn');
-    const rsvpNoBtn = document.getElementById('rsvpNoBtn');
+    // ========== RSVP - ПОЛНОСТЬЮ ПЕРЕПИСАНО ==========
+    const rsvpRadios = document.querySelectorAll('input[name="rsvp"]');
     const rsvpMessageDiv = document.getElementById('rsvpMessage');
 
-    function showMessage(type) {
-        if(type === 'yes') {
+    function updateRSVPMessage(value) {
+        if(value === 'yes') {
             rsvpMessageDiv.innerHTML = '🎉 Спасибо большое! Ждём вас с огромной радостью! Готовьте танцевальные ноги — будет незабываемо! 💕';
             rsvpMessageDiv.style.background = 'rgba(201,160,108,0.15)';
             rsvpMessageDiv.style.color = '#8b5e5e';
             rsvpMessageDiv.style.border = '1px solid #d4af7a';
-        } else {
+        } else if(value === 'no') {
             rsvpMessageDiv.innerHTML = '💔 Очень жаль, что не сможете быть. Спасибо, что предупредили! Чокнемся за ваше здоровье 🥂';
             rsvpMessageDiv.style.background = 'rgba(200,150,140,0.1)';
             rsvpMessageDiv.style.color = '#9e6b6b';
             rsvpMessageDiv.style.border = '1px solid #e8ddd5';
-        }
-        rsvpMessageDiv.style.padding = '0.8rem';
-        rsvpMessageDiv.style.borderRadius = '2rem';
-        
-        setTimeout(() => {
+        } else {
             rsvpMessageDiv.innerHTML = '';
             rsvpMessageDiv.style.background = 'transparent';
             rsvpMessageDiv.style.border = 'none';
-        }, 3000);
+        }
     }
 
-    rsvpYesBtn.addEventListener('click', () => showMessage('yes'));
-    rsvpNoBtn.addEventListener('click', () => showMessage('no'));
+    rsvpRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if(this.checked) {
+                updateRSVPMessage(this.value);
+            }
+        });
+    });
 
-    // Алкоголь выбор
+    // ========== АЛКОГОЛЬ - С ШУТКАМИ И АНИМАЦИЕЙ ==========
     let selectedDrinks = [];
     const drinkCards = document.querySelectorAll('.drink-card');
     const alcoholStatus = document.getElementById('alcoholSelectionStatus');
+
+    const jokes = [
+        '😄 Отличный набор! Бармен уже в шоке...',
+        '🍻 Ого, с таким набором вечер точно удастся!',
+        '🎉 Закуски уже заказали, не переживайте!',
+        '💪 Крепкий выбор! Готовьте тосты!',
+        '🥂 Шампанское + ваши напитки = идеальный вечер!',
+        '🍷 Отличный вкус! Мы вас поняли!'
+    ];
+
+    function showJoke() {
+        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+        alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. ${randomJoke} ✨`;
+        alcoholStatus.style.background = 'rgba(212,175,122,0.15)';
+        alcoholStatus.style.padding = '0.8rem';
+        alcoholStatus.style.borderRadius = '2rem';
+        
+        setTimeout(() => {
+            if(selectedDrinks.length > 0) {
+                alcoholStatus.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')}. Спасибо! 🥂 ✨`;
+            } else {
+                alcoholStatus.innerHTML = '';
+                alcoholStatus.style.background = 'transparent';
+                alcoholStatus.style.padding = '0';
+            }
+        }, 3000);
+    }
 
     drinkCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -610,57 +718,46 @@
             if(index !== -1) {
                 selectedDrinks.splice(index, 1);
                 card.classList.remove('selected');
+                if(selectedDrinks.length === 0) {
+                    alcoholStatus.innerHTML = '';
+                    alcoholStatus.style.background = 'transparent';
+                    alcoholStatus.style.padding = '0';
+                } else {
+                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Спасибо! 🥂 ✨`;
+                    alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
+                    alcoholStatus.style.padding = '0.5rem';
+                    alcoholStatus.style.borderRadius = '2rem';
+                }
             } else {
                 if(selectedDrinks.length >= 3) {
-                    alcoholStatus.innerText = '❓ Можно выбрать не больше 3 напитков!';
-                    setTimeout(() => alcoholStatus.innerText = '', 1500);
+                    alcoholStatus.innerHTML = '❓ Можно выбрать не больше 3 напитков! Вы и так щедры 🍻';
+                    alcoholStatus.style.background = 'rgba(200,150,140,0.15)';
+                    alcoholStatus.style.padding = '0.5rem';
+                    alcoholStatus.style.borderRadius = '2rem';
+                    setTimeout(() => {
+                        if(selectedDrinks.length > 0) {
+                            alcoholStatus.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')}. Спасибо! 🥂 ✨`;
+                        } else {
+                            alcoholStatus.innerHTML = '';
+                            alcoholStatus.style.background = 'transparent';
+                        }
+                    }, 2000);
                     return;
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
-            }
-            
-            if(selectedDrinks.length > 0) {
-                alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
-                alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
-                alcoholStatus.style.padding = '0.5rem';
-                alcoholStatus.style.borderRadius = '2rem';
-            } else {
-                alcoholStatus.innerHTML = '';
-                alcoholStatus.style.background = 'transparent';
+                
+                if(selectedDrinks.length === 3) {
+                    showJoke();
+                } else {
+                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
+                    alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
+                    alcoholStatus.style.padding = '0.5rem';
+                    alcoholStatus.style.borderRadius = '2rem';
+                }
             }
         });
     });
-
-    // Звёзды и шампанское (вместо капель)
-    function createSparkle() {
-        const items = ['✨', '⭐', '🌟', '🥂', '💫', '🎆'];
-        const el = document.createElement('div');
-        el.innerHTML = items[Math.floor(Math.random() * items.length)];
-        el.style.position = 'fixed';
-        el.style.left = Math.random() * 100 + '%';
-        el.style.top = '-30px';
-        el.style.fontSize = (Math.random() * 24 + 16) + 'px';
-        el.style.opacity = Math.random() * 0.6 + 0.3;
-        el.style.pointerEvents = 'none';
-        el.style.zIndex = '999';
-        el.style.transition = 'top 4s linear, opacity 2s, transform 2s';
-        document.body.appendChild(el);
-        setTimeout(() => {
-            el.style.top = '100vh';
-            el.style.opacity = '0';
-            el.style.transform = `rotate(${Math.random() * 360}deg)`;
-        }, 10);
-        setTimeout(() => el.remove(), 4000);
-    }
-    
-    setInterval(() => {
-        for(let i = 0; i < 3; i++) setTimeout(createSparkle, i * 200);
-    }, 5000);
-    
-    setTimeout(() => {
-        for(let i = 0; i < 5; i++) setTimeout(createSparkle, i * 300);
-    }, 500);
 
     // Модалки
     const remindBtn = document.getElementById('remindBtn');
