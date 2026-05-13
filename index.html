@@ -123,7 +123,7 @@
             background: rgba(255, 248, 240, 0.96);
         }
 
-        /* Заблокированная форма */
+        /* Заблокированные формы */
         .disabled-form {
             pointer-events: none;
             opacity: 0.7;
@@ -145,8 +145,33 @@
             z-index: 10;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        .disabled-alcohol {
+            pointer-events: none;
+            opacity: 0.7;
+            position: relative;
+        }
+        .disabled-alcohol::after {
+            content: "✓ Ваш выбор сохранён!";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #c9a06c;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 3rem;
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 10;
+            font-size: 0.9rem;
+        }
         @media (max-width: 600px) {
-            .disabled-form::after { white-space: normal; font-size: 0.8rem; width: 80%; text-align: center; }
+            .disabled-form::after, .disabled-alcohol::after {
+                white-space: normal;
+                font-size: 0.8rem;
+                width: 80%;
+                text-align: center;
+            }
         }
 
         .timer {
@@ -223,8 +248,12 @@
             background: #b88855;
             transform: scale(1.02);
         }
+        .submit-btn:disabled {
+            background: #a08060;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-        /* АНИМАЦИИ ДЛЯ АЛКОГОЛЯ */
         .drinks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -269,7 +298,6 @@
             transition: all 0.3s;
         }
 
-        /* Всплывающие искры */
         .sparkle {
             position: fixed;
             pointer-events: none;
@@ -423,19 +451,21 @@
             </div>
         </div>
 
-        <!-- Правая колонка — алкоголь (более живой) -->
-        <div class="glass-card" data-aos="fade-left">
+        <!-- Правая колонка — алкоголь (тоже блокируется после отправки) -->
+        <div class="glass-card" data-aos="fade-left" id="alcoholFormCard">
             <h2>🍸 Что пьём?</h2>
             <p>Выберите до 3 вариантов — бокалы подпрыгнут! 🥂</p>
-            <div class="drinks-grid" id="drinksGrid">
-                <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
-                <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
-                <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
-                <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
-                <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div>Шампанское</div></div>
+            <div id="alcoholFormContent">
+                <div class="drinks-grid" id="drinksGrid">
+                    <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
+                    <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
+                    <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
+                    <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
+                    <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div>Шампанское</div></div>
+                </div>
+                <div id="alcoholSelectionStatus" class="alcohol-status"></div>
+                <button class="submit-btn" id="submitAlcohol">💾 Сохранить выбор</button>
             </div>
-            <div id="alcoholSelectionStatus" class="alcohol-status"></div>
-            <button class="submit-btn" id="submitAlcohol">💾 Сохранить выбор</button>
         </div>
     </div>
 
@@ -532,12 +562,10 @@
         fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: JSON.stringify(data) });
     }
 
-    // === БЛОКИРОВКА ПОСЛЕ ОТПРАВКИ ===
+    // === БЛОКИРОВКА RSVP (ГОСТЬ) ===
     let isFormLocked = false;
     const rsvpFormCard = document.getElementById('rsvpFormCard');
-    const rsvpFormContent = document.getElementById('rsvpFormContent');
 
-    // RSVP отправка + блокировка
     let rsvpValue = null;
     document.querySelectorAll('input[name="rsvp"]').forEach(radio => {
         radio.addEventListener('change', function() { rsvpValue = this.value; });
@@ -562,7 +590,6 @@
             timestamp: new Date().toLocaleString()
         });
 
-        // Блокируем форму
         isFormLocked = true;
         rsvpFormCard.classList.add('disabled-form');
 
@@ -578,12 +605,14 @@
         msgDiv.style.borderRadius = '2rem';
     });
 
-    // === АЛКОГОЛЬ С АНИМАЦИЕЙ БОКАЛОВ И ИСКРАМИ ===
+    // === АЛКОГОЛЬ С БЛОКИРОВКОЙ ПОСЛЕ ОТПРАВКИ ===
     let selectedDrinks = [];
+    let isAlcoholLocked = false;
     const drinkCards = document.querySelectorAll('.drink-card');
     const alcoholStatusDiv = document.getElementById('alcoholSelectionStatus');
+    const alcoholFormCard = document.getElementById('alcoholFormCard');
+    const submitAlcoholBtn = document.getElementById('submitAlcohol');
 
-    // Функция для создания искр
     function createSparkles(x, y) {
         for (let i = 0; i < 8; i++) {
             const spark = document.createElement('div');
@@ -596,8 +625,13 @@
         }
     }
 
+    // Выбор напитков (только если алкоголь ещё не заблокирован)
     drinkCards.forEach(card => {
         card.addEventListener('click', (e) => {
+            if (isAlcoholLocked) {
+                alert('Вы уже сохранили выбор алкоголя. Изменить нельзя!');
+                return;
+            }
             const rect = card.getBoundingClientRect();
             const drink = card.getAttribute('data-drink');
             const idx = selectedDrinks.indexOf(drink);
@@ -608,12 +642,14 @@
             } else {
                 if (selectedDrinks.length >= 3) {
                     alcoholStatusDiv.innerHTML = '❓ Не больше 3 напитков! 🍾';
-                    setTimeout(() => alcoholStatusDiv.innerHTML = '', 1500);
+                    setTimeout(() => {
+                        if (selectedDrinks.length) alcoholStatusDiv.innerHTML = `✨ Выбрано: ${selectedDrinks.join(', ')} ✨`;
+                        else alcoholStatusDiv.innerHTML = '';
+                    }, 1500);
                     return;
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
-                // Анимация бокала + искры
                 const icon = card.querySelector('.drink-icon');
                 icon.style.animation = 'none';
                 setTimeout(() => icon.style.animation = 'bounce 0.5s ease', 10);
@@ -630,7 +666,12 @@
         });
     });
 
+    // Отправка алкоголя с блокировкой
     document.getElementById('submitAlcohol').addEventListener('click', () => {
+        if (isAlcoholLocked) {
+            alert('Вы уже сохранили выбор алкоголя. Спасибо!');
+            return;
+        }
         const name = document.getElementById('guestName').value.trim();
         if (!name) { alert('Сначала укажите имя в левой колонке'); return; }
         if (selectedDrinks.length === 0) { alert('Выберите напитки'); return; }
@@ -642,11 +683,17 @@
             timestamp: new Date().toLocaleString()
         });
 
+        // Блокируем алкогольную форму
+        isAlcoholLocked = true;
+        alcoholFormCard.classList.add('disabled-alcohol');
+        submitAlcoholBtn.disabled = true;
+        submitAlcoholBtn.style.opacity = '0.6';
+        submitAlcoholBtn.textContent = '✓ Выбор сохранён';
+
         alcoholStatusDiv.innerHTML = '✅ Спасибо! Бармен уже готовит! 🥂';
         setTimeout(() => {
             if (selectedDrinks.length) alcoholStatusDiv.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')} ✨`;
-            else alcoholStatusDiv.innerHTML = '';
-        }, 2500);
+        }, 2000);
     });
 
     // === Блок про цветы ===
