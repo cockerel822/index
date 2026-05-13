@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Андрей & Дарья | Приглашение на свадьбу | 22 августа 2026</title>
+    <!-- Шрифты: современный минимализм с винтажным оттенком -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fef9f0;  /* тёплый кремовый фон */
+            color: #2c2b28;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* винтажные + современные акценты */
+        h1, h2, h3, .script-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #d4b88c;
+            padding-left: 1rem;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* hero секция с фото */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            background: rgba(44, 43, 40, 0.65);
+            backdrop-filter: blur(3px);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            max-width: 90%;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .date {
+            font-size: 1.6rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        /* таймер */
+        .timer-section {
+            background: #fff9f2;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 1px solid #f0e3d4;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0 1rem;
+        }
+
+        .timer-block {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            min-width: 100px;
+            border: 1px solid #f0e3d4;
+        }
+
+        .timer-number {
+            font-size: 3rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: #a87542;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7b6e5d;
+        }
+
+        /* карточки локаций */
+        .locations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .location-card {
+            flex: 1;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+            border: 1px solid #f0e3d4;
+        }
+        .location-card:hover { transform: translateY(-5px); }
+
+        .map-placeholder {
+            height: 200px;
+            background: #e7dfd3;
+            position: relative;
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+        .card-text {
+            padding: 1.5rem;
+        }
+        .card-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .address {
+            color: #6b5a48;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .btn-map {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #ece3d9;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #2c2b28;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .btn-map:hover { background: #d4b88c; color: white; }
+
+        /* форма RSVP */
+        .rsvp {
+            background: #fff9f2;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 1px solid #f0e3d4;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2d5c5;
+            border-radius: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            background: white;
+        }
+        textarea { resize: vertical; }
+        button {
+            background: #a87542;
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 2.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        button:hover { background: #8b5e32; transform: scale(0.98); }
+
+        /* гостевая / пожелания по алкоголю */
+        .gift-message {
+            background: #e9e0d3;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+            border-left: 8px solid #d4b88c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #9a8b78;
+        }
+        hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #f0e3d4, transparent);
+        }
+
+        @media (max-width: 780px) {
+            .hero h1 { font-size: 2.5rem; }
+            .timer-block { min-width: 70px; padding: 0.7rem 1rem; }
+            .timer-number { font-size: 2rem; }
+        }
+
+        .photo-credit {
+            font-size: 0.7rem;
+            text-align: right;
+            margin-top: 0.5rem;
+            opacity: 0.6;
+        }
+        .animated-border {
+            animation: fadeSlideUp 0.8s ease-out;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Андрей & Дарья</h1>
+        <div class="date">Приглашают вас разделить с ними день любви и счастья</div>
+        <div class="date" style="font-size:1.2rem; margin-top:1rem;">22 августа 2026</div>
+    </div>
+</section>
+
+<!-- Таймер -->
+<div class="timer-section">
+    <div class="container">
+        <h2>До нашей свадьбы осталось</h2>
+        <div class="timer" id="countdown-timer">
+            <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">Дней</div></div>
+            <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">Часов</div></div>
+            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">Минут</div></div>
+            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">Секунд</div></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Локации -->
+    <h2>Места проведения</h2>
+    <div class="locations">
+        <!-- ЗАГС -->
+        <div class="location-card">
+            <div class="map-placeholder">
+                <iframe src="https://yandex.ru/maps/-/CPgRn0kJ/?ll=35.917699,56.856987&z=17&l=map&pt=35.917699,56.856987" allowfullscreen></iframe>
+            </div>
+            <div class="card-text">
+                <h3>Торжественная регистрация</h3>
+                <div class="address">Свободный пер., 5, Тверь</div>
+                <p><strong>🕒 Начало церемонии: 15:40</strong></p>
+                <p><em>Пожалуйста, подумайте о трансфере заранее, так как мы организуем транспорт <strong>только до банкета</strong>. Будем рады видеть вас на церемонии!</em></p>
+                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" class="btn-map">Открыть карту →</a>
+            </div>
+        </div>
+
+        <!-- Банкет Тверь Отель -->
+        <div class="location-card">
+            <div class="map-placeholder">
+                <iframe src="https://yandex.ru/maps/-/CPgRrYjS/?ll=35.958198,56.867325&z=17&l=map&pt=35.958198,56.867325" allowfullscreen></iframe>
+            </div>
+            <div class="card-text">
+                <h3>Свадебный банкет</h3>
+                <div class="address">Отель «Тверь», Петербургское ш., 130</div>
+                <p><strong>🍾 Начало в 17:00</strong> | Трансфер для гостей из центра города будет организован, детали сообщим позже.</p>
+                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" class="btn-map">Проложить маршрут →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Хронология (предварительная, дополним по мере) -->
+    <h2>Ход праздника</h2>
+    <div style="background:#faf5ec; border-radius: 2rem; padding: 1.5rem; margin: 1rem 0 2rem;">
+        <ul style="list-style: none;">
+            <li>✨ <strong>15:40</strong> — Церемония в ЗАГСе (Свободный пер., 5)</li>
+            <li>🚌 <strong>16:20 – 16:50</strong> — Переезд / прогулка (для желающих)</li>
+            <li>🥂 <strong>17:00</strong> — Встреча гостей и фуршет в отеле «Тверь»</li>
+            <li>💃 <strong>18:30</strong> — Ужин и танцы до позднего вечера</li>
+        </ul>
+        <p style="font-size:0.85rem; margin-top:0.5rem;">*Детали программы будут дополнены. Ориентируемся на настроение и ваше присутствие!</p>
+    </div>
+
+    <!-- Блок пожеланий по подаркам / алкоголю - обыгрываем красиво -->
+    <div class="gift-message animated-border">
+        <span style="font-size: 2rem;">🍇🥂</span>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:1.8rem;">Вместо тысячи бутонов — один искренний тост</h3>
+        <p>Дорогие гости, ваше присутствие — главный подарок. Мы будем рады, если вы поддержите наш <strong>винный фонд</strong> вместо традиционных цветов. Выбирайте бутылку вина, шампанского или другого напитка, который вам нравится самим — мы с удовольствием разделим его в этот вечер. Пусть каждый глоток напоминает о тёплой встрече!</p>
+        <p style="margin-top:8px;">✨ <em>«Лучший букет — это вкусная бутылка и ваш смех»</em></p>
+    </div>
+
+    <!-- RSVP форма с +1 и пожеланиями по алкоголю -->
+    <div class="rsvp" id="rsvp">
+        <h2>Подтвердите присутствие</h2>
+        <p>Пожалуйста, ответьте до <strong>1 июля 2026</strong>, чтобы мы могли подготовиться с любовью.</p>
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label>Ваше имя *</label>
+                <input type="text" id="guestName" required placeholder="Например, Екатерина">
+            </div>
+            <div class="form-group">
+                <label>Будете на церемонии? (15:40, ЗАГС) *</label>
+                <select id="ceremonyAttend">
+                    <option value="да">Да, конечно</option>
+                    <option value="нет">Нет, только на банкет</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Будете на банкете? *</label>
+                <select id="banquetAttend" required>
+                    <option value="да">Да, с удовольствием</option>
+                    <option value="нет">К сожалению, нет</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>+1 (гость / пара) — будет ли с вами второй гость? </label>
+                <select id="plusOne">
+                    <option value="нет">Буду один(а)</option>
+                    <option value="да">Да, со мной будет пара/гость</option>
+                </select>
+                <input type="text" id="plusOneName" placeholder="Имя сопровождающего (если есть)" style="margin-top:8px;">
+            </div>
+            <div class="form-group">
+                <label>Ваши пожелания насчёт алкоголя (что любите? вино, виски, безалкогольное?)</label>
+                <textarea id="alcoholWish" rows="2" placeholder="Например: предпочитаем сухое красное / любим джин-тоник / безалкогольное шампанское и т.д."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Любой комментарий или диетические предпочтения</label>
+                <textarea id="comment" rows="2" placeholder="Вегетарианство, аллергии, важные моменты..."></textarea>
+            </div>
+            <button type="submit">Отправить RSVP</button>
+            <p id="formStatus" style="margin-top:15px; font-size:0.9rem;"></p>
+        </form>
+    </div>
+
+    <!-- Анимация и дополнительная информация -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <p style="border-top:1px solid #f0e3d4; padding-top:2rem;">Дресс-код свободный, но будем рады, если вы поддержите светлые, натуральные оттенки.<br>
+        ❤️ Если у вас останутся вопросы, свяжитесь с нами в соцсетях.</p>
+    </div>
+</div>
+
+<footer>
+    <p>Андрей & Дарья · 22 августа 2026 · Тверь</p>
+    <p>С нетерпением ждём встречи!</p>
+</footer>
+
+<script>
+    // Таймер до 22 августа 2026 года (начало дня, можно 00:00)
+    const weddingDate = new Date(2026, 7, 22, 0, 0, 0).getTime();
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+        if (distance < 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            return;
+        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (86400000)) / (3600000));
+        const minutes = Math.floor((distance % 3600000) / 60000);
+        const seconds = Math.floor((distance % 60000) / 1000);
+        document.getElementById('days').innerText = days < 10 ? '0'+days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0'+minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0'+seconds : seconds;
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // Обработка формы RSVP (имитация отправки)
+    const form = document.getElementById('rsvpForm');
+    const statusMsg = document.getElementById('formStatus');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('guestName').value.trim();
+        if (!name) {
+            statusMsg.innerText = '❌ Пожалуйста, укажите ваше имя.';
+            statusMsg.style.color = '#b15e3a';
+            return;
+        }
+        const ceremony = document.getElementById('ceremonyAttend').value;
+        const banquet = document.getElementById('banquetAttend').value;
+        const plusOneVal = document.getElementById('plusOne').value;
+        const plusOneName = document.getElementById('plusOneName').value;
+        const alcoholPref = document.getElementById('alcoholWish').value;
+        const comment = document.getElementById('comment').value;
+        
+        // Здесь можно было бы отправить на Google Forms или простой email, но для демо и GitHub Pages 
+        // сделаем красивое сообщение и покажем в консоль (можно настроить на Formspree или Getform)
+        console.log({
+            name, ceremony, banquet, plusOneVal, plusOneName, alcoholPref, comment
+        });
+        
+        let plusText = '';
+        if (plusOneVal === 'да') {
+            plusText = plusOneName ? `, +1 (${plusOneName})` : `, +1 (имя не указано)`;
+        }
+        statusMsg.innerHTML = `✅ ${name}, спасибо за подтверждение! ${ceremony === 'да' ? 'Ждём вас на церемонии ❤️' : 'Учтём, что вы будете только на банкете.'} ${plusText}. <br>Ваши пожелания по алкоголю переданы организаторам.`;
+        statusMsg.style.color = '#5f7a5c';
+        
+        // очищать форму не будем, но можно сбросить, но пользователи могут видеть свое подтверждение
+        // при желании можно закомментировать, но оставим наглядным
+        setTimeout(() => {
+            statusMsg.style.opacity = '0.7';
+        }, 3000);
+        // Дополнительно: реальную отправку сделать через emailjs или formspree (пользователь сам может добавить)
+        // Для этого кода мы выполнили логику оповещения
+    });
+
+    // Простая анимация появления (уже добавили animated-border, но добавим на карточки)
+    document.querySelectorAll('.location-card, .rsvp, .gift-message').forEach(el => {
+        el.classList.add('animated-border');
+        el.style.opacity = '1';
+    });
+</script>
+</body>
+</html>
