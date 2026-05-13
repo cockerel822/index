@@ -23,7 +23,6 @@
             position: relative;
         }
 
-        /* Оливковые ветки */
         body::before {
             content: "";
             position: fixed;
@@ -33,42 +32,10 @@
             height: 100%;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="none" stroke="rgba(180,150,120,0.15)" stroke-width="2" d="M200,100 Q250,80 300,110 T400,95 M280,80 Q300,50 330,70 T370,55 M180,120 Q200,140 230,130 T270,150 M600,650 Q640,620 680,640 T740,620 M650,680 Q670,650 700,670 T740,655 M580,670 Q600,690 620,680 T660,700 M900,300 Q940,280 980,310 T1040,290 M920,320 Q940,300 970,320 T1010,305 M880,280 Q900,260 920,270 T960,250 M100,500 Q130,480 160,510 T210,490 M130,520 Q150,500 170,520 T200,505 M80,480 Q100,460 120,470 T150,455 M1050,200 Q1080,180 1110,210 T1160,190 M1080,220 Q1100,200 1120,220 T1150,205 M1030,180 Q1050,160 1070,170 T1100,155"/><circle cx="300" cy="100" r="8" fill="rgba(180,150,120,0.12)"/><circle cx="400" cy="90" r="6" fill="rgba(180,150,120,0.1)"/><circle cx="680" cy="650" r="7" fill="rgba(180,150,120,0.12)"/><circle cx="740" cy="640" r="5" fill="rgba(180,150,120,0.1)"/><circle cx="980" cy="300" r="8" fill="rgba(180,150,120,0.12)"/><circle cx="1040" cy="290" r="6" fill="rgba(180,150,120,0.1)"/><circle cx="160" cy="500" r="7" fill="rgba(180,150,120,0.12)"/><circle cx="210" cy="490" r="5" fill="rgba(180,150,120,0.1)"/><circle cx="1110" cy="200" r="8" fill="rgba(180,150,120,0.12)"/><circle cx="1160" cy="190" r="6" fill="rgba(180,150,120,0.1)"/><ellipse cx="280" cy="100" rx="12" ry="6" fill="rgba(150,120,90,0.08)" transform="rotate(-30 280 100)"/><ellipse cx="370" cy="85" rx="10" ry="5" fill="rgba(150,120,90,0.06)" transform="rotate(-20 370 85)"/><ellipse cx="650" cy="660" rx="11" ry="5" fill="rgba(150,120,90,0.08)" transform="rotate(15 650 660)"/><ellipse cx="1000" cy="295" rx="12" ry="6" fill="rgba(150,120,90,0.08)" transform="rotate(-25 1000 295)"/><ellipse cx="180" cy="505" rx="10" ry="5" fill="rgba(150,120,90,0.06)" transform="rotate(-15 180 505)"/><ellipse cx="1130" cy="195" rx="11" ry="5" fill="rgba(150,120,90,0.08)" transform="rotate(-35 1130 195)"/></svg>');
             background-repeat: repeat;
-            background-position: 0 0;
             background-size: 400px 300px;
             opacity: 0.6;
             pointer-events: none;
             z-index: 0;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><path fill="none" stroke="rgba(160,130,100,0.1)" stroke-width="2" d="M50,50 Q100,30 150,60 T250,40 M120,40 Q140,20 170,45 T210,30 M30,70 Q50,90 80,80 T120,100 M700,550 Q730,530 760,560 T810,540 M730,570 Q750,550 780,575 T810,560 M680,560 Q700,580 720,570 T760,590 M400,300 Q430,280 460,310 T510,290 M430,320 Q450,300 480,320 T510,305"/><circle cx="150" cy="50" r="6" fill="rgba(160,130,100,0.1)"/><circle cx="250" cy="40" r="5" fill="rgba(160,130,100,0.08)"/><circle cx="760" cy="550" r="7" fill="rgba(160,130,100,0.1)"/><circle cx="810" cy="540" r="5" fill="rgba(160,130,100,0.08)"/><circle cx="460" cy="300" r="6" fill="rgba(160,130,100,0.1)"/><circle cx="510" cy="290" r="5" fill="rgba(160,130,100,0.08)"/></svg>');
-            background-repeat: repeat;
-            background-position: 50px 100px;
-            background-size: 300px 250px;
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        h1, h2, h3, .script-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid #d4af7a;
-            padding-left: 1rem;
-            display: inline-block;
-            color: #8b5e5e;
         }
 
         .container {
@@ -77,6 +44,27 @@
             padding: 2rem 1.5rem;
             position: relative;
             z-index: 1;
+        }
+
+        /* ДВЕ КОЛОНКИ РЯДОМ */
+        .two-columns {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .two-columns > div {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #d4af7a;
+            padding-left: 1rem;
+            color: #8b5e5e;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .hero {
@@ -90,7 +78,6 @@
         }
 
         .hero-content {
-            position: relative;
             background: rgba(255, 248, 240, 0.3);
             backdrop-filter: blur(10px);
             border-radius: 3rem;
@@ -98,7 +85,6 @@
             max-width: 90%;
             width: 100%;
             border: 1px solid rgba(212, 175, 122, 0.5);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             animation: floatGlass 6s infinite ease-in-out;
         }
 
@@ -116,7 +102,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(212,175,122,0.3);
             animation: pulseGold 2.5s infinite ease-in-out;
         }
 
@@ -125,30 +110,18 @@
             50% { text-shadow: 0 0 25px rgba(212,175,122,0.6); letter-spacing: 9px; }
         }
 
-        .date-badge {
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: #fff5ee;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
         .glass-card {
             background: rgba(255, 248, 240, 0.88);
             backdrop-filter: blur(8px);
             border-radius: 1.8rem;
             padding: 2rem;
-            margin: 2rem 0;
             border: 1px solid rgba(212, 175, 122, 0.3);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            height: 100%;
         }
-
         .glass-card:hover {
             transform: translateY(-3px);
             background: rgba(255, 248, 240, 0.96);
-            border-color: rgba(212, 175, 122, 0.6);
         }
 
         .timer {
@@ -158,93 +131,55 @@
             flex-wrap: wrap;
             margin: 2rem 0;
         }
-
         .timer-block {
             background: rgba(255,248,240,0.8);
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.2rem;
             border-radius: 1.5rem;
-            min-width: 90px;
+            min-width: 80px;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 1px solid rgba(212,175,122,0.3);
+            transition: all 0.3s ease;
         }
-
-        .timer-block:hover {
-            transform: scale(1.08) translateY(-5px);
-            background: rgba(255,248,240,0.95);
-            border-color: #d4af7a;
-        }
-
         .timer-number {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #c9a06c;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .timer-label {
-            font-size: 0.75rem;
-            color: #9e6b6b;
-            letter-spacing: 1px;
-        }
-
-        .guest-form {
-            background: rgba(255,248,240,0.9);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
         }
 
         .form-group {
             margin-bottom: 1rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.3rem;
             font-weight: 500;
             color: #8b5e5e;
         }
-
         .form-group input, .form-group select {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #d4af7a;
             border-radius: 1rem;
-            font-family: 'Inter', sans-serif;
             background: rgba(255,255,245,0.9);
         }
 
         .rsvp-radio-group {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             justify-content: center;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             flex-wrap: wrap;
         }
-
         .rsvp-radio {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             cursor: pointer;
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.2rem;
             background: rgba(255,248,240,0.8);
             border-radius: 3rem;
-            transition: all 0.3s ease;
             border: 1px solid rgba(212,175,122,0.3);
         }
-
-        .rsvp-radio:hover {
-            transform: scale(1.02);
-            background: rgba(255,248,240,0.95);
-            border-color: #d4af7a;
-        }
-
         .rsvp-radio input {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
             accent-color: #c9a06c;
         }
 
@@ -252,40 +187,38 @@
             background: #c9a06c;
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem;
             border-radius: 3rem;
-            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             width: 100%;
             margin-top: 1rem;
         }
-
         .submit-btn:hover {
             background: #b88855;
-            transform: scale(1.02);
         }
 
-        .rsvp-message {
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .drink-card {
+            background: rgba(255,248,240,0.9);
+            border-radius: 1rem;
+            padding: 1rem;
             text-align: center;
-            padding: 0.8rem;
-            border-radius: 2rem;
-            margin-top: 1rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            animation: slideDown 0.4s ease-out;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid rgba(212,175,122,0.2);
         }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .drink-card.selected {
+            background: #f9ede8;
+            border-color: #c9a06c;
+        }
+        .drink-icon {
+            font-size: 2rem;
         }
 
         .gift-block {
@@ -294,119 +227,6 @@
             padding: 2rem;
             margin: 2rem 0;
             text-align: center;
-            border: 1px solid rgba(212,175,122,0.5);
-            transition: all 0.3s;
-        }
-
-        .gift-block:hover {
-            transform: scale(1.01);
-            background: linear-gradient(135deg, rgba(212,175,122,0.2), rgba(201,160,108,0.15));
-        }
-
-        .gift-icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .gift-title {
-            font-size: 1.6rem;
-            font-family: 'Cormorant Garamond', serif;
-            color: #c9a06c;
-            margin-bottom: 1rem;
-        }
-
-        .gift-text {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #8b5e5e;
-        }
-
-        .gift-btn {
-            background: #c9a06c;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 3rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gift-btn:hover {
-            background: #b88855;
-            transform: scale(1.02);
-        }
-
-        .drinks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1.2rem;
-            margin: 2rem 0;
-        }
-
-        .drink-card {
-            background: rgba(255,248,240,0.9);
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 1px solid rgba(212,175,122,0.2);
-        }
-
-        .drink-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background: white;
-            border-color: #d4af7a;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-        }
-
-        .drink-card.selected {
-            background: #f9ede8;
-            border-color: #c9a06c;
-            transform: scale(1.02);
-        }
-
-        .drink-card.selected .drink-icon {
-            animation: bounceOnce 0.4s ease;
-        }
-
-        @keyframes bounceOnce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .drink-icon {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .drink-name {
-            font-weight: 500;
-            color: #8b5e5e;
-        }
-
-        .alcohol-status {
-            text-align: center;
-            margin-top: 1rem;
-            padding: 0.5rem;
-            border-radius: 2rem;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            animation: fadeInUp 0.4s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .social-links {
@@ -414,64 +234,34 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
-
         .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.4rem;
             background: #c9a06c;
             color: white;
-            text-decoration: none;
+            padding: 0.6rem 1.2rem;
             border-radius: 3rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            text-decoration: none;
             font-size: 0.9rem;
-        }
-
-        .social-btn:hover {
-            background: #b88855;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(201,160,108,0.3);
         }
 
         .floating-buttons {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             z-index: 1000;
         }
-
         .float-btn {
-            background: rgba(201, 160, 108, 0.92);
-            backdrop-filter: blur(4px);
+            background: rgba(201,160,108,0.95);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 10px 22px;
+            padding: 8px 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .float-btn:hover {
-            transform: scale(1.08);
-            background: #c9a06c;
-        }
-
-        .secret-btn {
-            animation: pulseRose 2s infinite;
-        }
-
-        @keyframes pulseRose {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(201,160,108,0.5); }
-            50% { box-shadow: 0 0 0 8px rgba(201,160,108,0); }
         }
 
         .modal {
@@ -487,51 +277,31 @@
             justify-content: center;
             align-items: center;
         }
-
         .modal-content {
-            background: rgba(255,250,245,0.98);
-            max-width: 450px;
+            background: white;
+            max-width: 400px;
             width: 90%;
             padding: 2rem;
             border-radius: 1.5rem;
             text-align: center;
-            border: 1px solid #d4af7a;
-            animation: modalPop 0.3s ease-out;
         }
-
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
         .close-modal {
             float: right;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #c9a06c;
-            transition: all 0.2s;
-        }
-
-        .close-modal:hover {
-            transform: scale(1.1);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: rgba(75, 55, 45, 0.92);
-            color: #f5e6e0;
+            padding: 1.5rem;
+            background: rgba(75,55,45,0.9);
+            color: white;
             margin-top: 2rem;
-            position: relative;
-            z-index: 1;
         }
 
-        @media (max-width: 768px) {
-            .initials { font-size: 4rem; letter-spacing: 4px; }
-            .timer-number { font-size: 2rem; }
-            .rsvp-radio-group { gap: 1rem; }
-            .rsvp-radio { padding: 0.6rem 1.2rem; }
-            .social-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        @media (max-width: 800px) {
+            .initials { font-size: 4rem; }
+            .two-columns { flex-direction: column; }
         }
     </style>
 </head>
@@ -541,124 +311,116 @@
     <div class="hero-content">
         <div class="initials">А&Д</div>
         <div class="date-badge">22 августа 2026</div>
-        <div style="font-size:0.9rem; margin-top:0.8rem; color:#fff5ee;">Церемония 15:40 | Банкет 17:00</div>
+        <div>Церемония 15:40 | Банкет 17:00</div>
     </div>
 </section>
 
 <div class="container">
+    <!-- Таймер -->
     <div class="glass-card" data-aos="fade-up">
         <h2>До свадьбы осталось</h2>
         <div class="timer" id="countdown-timer">
-            <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">Дней</div></div>
-            <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">Часов</div></div>
-            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">Минут</div></div>
-            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">Секунд</div></div>
+            <div class="timer-block"><div class="timer-number" id="days">00</div><div>Дней</div></div>
+            <div class="timer-block"><div class="timer-number" id="hours">00</div><div>Часов</div></div>
+            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div>Минут</div></div>
+            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div>Секунд</div></div>
         </div>
     </div>
 
-    <div class="glass-card" data-aos="fade-right">
-        <h2>Дорогие гости!</h2>
-        <p style="font-size:1.2rem; margin:1rem 0;">Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни. Ваше присутствие — лучший подарок для нас.</p>
-        <p style="font-style:italic; color:#c9a06c;">✨ Ждём вас в этот особенный день ✨</p>
-    </div>
-
-    <!-- RSVP с формой -->
-    <div class="glass-card" data-aos="fade-left">
-        <h2>Подтвердите присутствие</h2>
-        <p style="color:#9e6b6b;">Пожалуйста, заполните форму, чтобы мы знали, что вас ждать</p>
-        
-        <div class="guest-form">
+    <!-- ДВЕ КОЛОНКИ РЯДОМ: форма RSVP и алкоголь -->
+    <div class="two-columns">
+        <!-- Левая колонка — данные гостя -->
+        <div class="glass-card" data-aos="fade-right">
+            <h2>✅ Подтверждение</h2>
             <div class="form-group">
                 <label>Ваше имя *</label>
                 <input type="text" id="guestName" placeholder="Как к вам обращаться?">
             </div>
             <div class="form-group">
-                <label>Будете с плюсом (+1)?</label>
+                <label>Будете с +1?</label>
                 <select id="plusOne">
                     <option value="нет">Нет, я один</option>
-                    <option value="да">Да, со мной будет гость</option>
+                    <option value="да">Да, со мной гость</option>
                 </select>
             </div>
             <div class="form-group" id="plusOneNameGroup" style="display:none;">
-                <label>Имя вашего +1</label>
-                <input type="text" id="plusOneName" placeholder="Как зовут вашего гостя?">
+                <label>Имя +1</label>
+                <input type="text" id="plusOneName" placeholder="Имя гостя">
             </div>
             <div class="form-group">
-                <label>Будете на церемонии в ЗАГСе (15:40)?</label>
+                <label>Церемония в ЗАГСе (15:40)?</label>
                 <select id="ceremonyAttend">
-                    <option value="да">Да, приду</option>
-                    <option value="нет">Нет, только на банкет</option>
+                    <option value="да">Буду</option>
+                    <option value="нет">Только банкет</option>
                 </select>
             </div>
-            
             <div class="rsvp-radio-group">
                 <label class="rsvp-radio">
-                    <input type="radio" name="rsvp" value="yes" id="rsvpYes">
-                    <label for="rsvpYes">✅ Да, я буду!</label>
+                    <input type="radio" name="rsvp" value="yes"> ✅ Я буду!
                 </label>
                 <label class="rsvp-radio">
-                    <input type="radio" name="rsvp" value="no" id="rsvpNo">
-                    <label for="rsvpNo">❌ Не смогу прийти</label>
+                    <input type="radio" name="rsvp" value="no"> ❌ Не смогу
                 </label>
             </div>
-            
             <button class="submit-btn" id="submitRSVP">📨 Отправить ответ</button>
+            <div id="rsvpMessage" class="rsvp-message" style="margin-top:1rem;"></div>
         </div>
-        
-        <div id="rsvpMessage" class="rsvp-message"></div>
+
+        <!-- Правая колонка — алкоголь -->
+        <div class="glass-card" data-aos="fade-left">
+            <h2>🍸 Что пьём?</h2>
+            <p>Выберите до 3 вариантов</p>
+            <div class="drinks-grid" id="drinksGrid">
+                <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
+                <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
+                <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
+                <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
+                <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div>Шампанское</div></div>
+            </div>
+            <div id="alcoholSelectionStatus" class="alcohol-status" style="margin:0.5rem 0; font-size:0.9rem;"></div>
+            <button class="submit-btn" id="submitAlcohol">💾 Сохранить выбор</button>
+        </div>
     </div>
 
+    <!-- Блок про цветы и подарки — теперь внизу -->
     <div class="gift-block" data-aos="fade-up">
         <div class="gift-icon">🥂🍇✨</div>
         <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
         <div class="gift-text">
-            Друзья, мы очень трепетно относимся к вашему вниманию. <br>
+            Друзья, мы очень трепетно относимся к вашему вниманию.<br>
             Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! 🥴<br>
             <strong>Крепко, искристо, вкусно — что по душе, то и везите!</strong>
         </div>
         <button class="gift-btn" id="understandBtn">Понял 👌</button>
     </div>
 
-    <div class="glass-card" data-aos="zoom-in">
-        <h2>Что предпочитаете из алкоголя?</h2>
-        <p>Выберите до 3 вариантов 🥂 (это поможет нам подготовить бар)</p>
-        <div class="drinks-grid" id="drinksGrid">
-            <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div class="drink-name">Вино</div></div>
-            <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div class="drink-name">Водка</div></div>
-            <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div class="drink-name">Виски</div></div>
-            <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div class="drink-name">Коньяк</div></div>
-            <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div class="drink-name">Шампанское</div></div>
-        </div>
-        <div id="alcoholSelectionStatus" class="alcohol-status"></div>
-        <button class="submit-btn" id="submitAlcohol" style="margin-top:1rem; background:#a08060;">💾 Сохранить выбор напитков</button>
-    </div>
-
+    <!-- Локации -->
     <div class="glass-card" data-aos="fade-up">
-        <h2>Места проведения</h2>
-        <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
+        <h2>📍 Места проведения</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
             <div style="flex:1; background:rgba(255,248,240,0.7); padding:1rem; border-radius:1rem;">
-                <h3 style="color:#8b5e5e;">📖 ЗАГС</h3>
+                <h3>📖 ЗАГС</h3>
                 <p>Свободный пер., 5<br>🕒 15:40</p>
-                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#c9a06c;">Карта →</a>
+                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank">Карта →</a>
             </div>
             <div style="flex:1; background:rgba(255,248,240,0.7); padding:1rem; border-radius:1rem;">
-                <h3 style="color:#8b5e5e;">🍾 Отель «Тверь»</h3>
+                <h3>🍾 Отель «Тверь»</h3>
                 <p>Петербургское ш., 130<br>🕒 17:00</p>
-                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#c9a06c;">Карта →</a>
+                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank">Карта →</a>
             </div>
         </div>
-        <p style="text-align:center; color:#9e6b6b;">🚌 Трансфер до банкета будет организован</p>
+        <p style="margin-top:1rem;">🚌 Трансфер до банкета будет организован</p>
     </div>
 
-    <!-- Соцсети и чат -->
+    <!-- Соцсети -->
     <div class="glass-card" data-aos="fade-up" style="text-align:center;">
-        <h2>Свяжитесь с нами</h2>
+        <h2>📱 Свяжитесь с нами</h2>
         <div class="social-links">
-            <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
-            <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
+            <a href="https://vk.com/id163521338" target="_blank" class="social-btn">Андрей</a>
+            <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">Дарья</a>
             <a href="https://vk.me/join/IHinKcpFxpeCGwUriovqqbUxn2Hl_3ScWFU=" target="_blank" class="social-btn">💬 Общий чат</a>
         </div>
-        <p style="color:#9e6b6b;">Дресс-код свободный, но классно, если будете в светлых тонах 🌸</p>
+        <p>Дресс-код свободный, приветствуются светлые тона 🌸</p>
     </div>
 </div>
 
@@ -675,18 +437,17 @@
 <div id="secretModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeSecretModal">&times;</span>
-        <div style="font-size:2.5rem;">🤫💕</div>
-        <h3 style="color:#8b5e5e;">Секрет второго дня</h3>
-        <p>Будет продолжение!<br>Тёплые посиделки, игры, душевные разговоры.</p>
-        <p><strong style="color:#c9a06c;">Скоро всё узнаете!</strong> Мы обязательно расскажем</p>
+        <div>🤫💕</div>
+        <h3>Секрет второго дня</h3>
+        <p>Будет продолжение! Тёплые посиделки, игры, душевные разговоры.</p>
+        <p><strong>Скоро всё узнаете!</strong></p>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: false, offset: 100 });
+    AOS.init({ duration: 800, once: false });
 
-    // ========== ВАША ССЫЛКА НА GOOGLE APPS SCRIPT ==========
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOC57XqQu7mg8vOwFazNJucWdpkKvpPzKMmdp-BvecQRdvQjLqCg9IBs4FxuOCIqeW/exec";
 
     // Таймер
@@ -703,76 +464,52 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // Показать/скрыть поле для имени +1
+    // Показать поле для +1
     const plusOneSelect = document.getElementById('plusOne');
     const plusOneNameGroup = document.getElementById('plusOneNameGroup');
-    
     plusOneSelect.addEventListener('change', function() {
         plusOneNameGroup.style.display = this.value === 'да' ? 'block' : 'none';
     });
 
-    // Функция отправки в Google Sheets
-    function sendToSheet(data, callback) {
-        if (!SCRIPT_URL) {
-            console.log("⚠️ Google Script URL не настроен. Данные сохранены в консоли:", data);
-            if(callback) callback(true);
-            return;
-        }
-        
+    function sendToSheet(data) {
+        if (!SCRIPT_URL) return;
         fetch(SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
-        }).then(() => {
-            if(callback) callback(true);
-        }).catch(error => {
-            console.log("❌ Ошибка отправки:", error);
-            if(callback) callback(false);
         });
     }
 
-    // Отправка RSVP ответа
+    // RSVP
     let rsvpValue = null;
     document.querySelectorAll('input[name="rsvp"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            rsvpValue = this.value;
-        });
+        radio.addEventListener('change', function() { rsvpValue = this.value; });
     });
 
-    document.getElementById('submitRSVP').addEventListener('click', function() {
+    document.getElementById('submitRSVP').addEventListener('click', () => {
         const name = document.getElementById('guestName').value.trim();
-        const plusOne = document.getElementById('plusOne').value;
-        const plusOneName = document.getElementById('plusOneName').value.trim();
-        const ceremony = document.getElementById('ceremonyAttend').value;
-        
-        if (!name) {
-            showMessage('rsvpMessage', '❓ Пожалуйста, укажите ваше имя', 'error');
-            return;
-        }
-        
-        if (!rsvpValue) {
-            showMessage('rsvpMessage', '❓ Пожалуйста, выберите, будете ли вы на свадьбе', 'error');
-            return;
-        }
-        
-        const data = {
+        if (!name) { alert('Укажите имя'); return; }
+        if (!rsvpValue) { alert('Выберите, будете ли вы'); return; }
+
+        sendToSheet({
             type: "rsvp",
             name: name,
             rsvp: rsvpValue,
-            plusOne: plusOne,
-            plusOneName: plusOne === 'да' ? plusOneName : "",
-            ceremony: ceremony,
+            plusOne: document.getElementById('plusOne').value,
+            plusOneName: document.getElementById('plusOneName').value.trim(),
+            ceremony: document.getElementById('ceremonyAttend').value,
             timestamp: new Date().toLocaleString()
-        };
-        
-        sendToSheet(data, (success) => {
-            if (rsvpValue === 'yes') {
-                showMessage('rsvpMessage', `🎉 Спасибо, ${name}! Ждём вас с радостью! ${plusOne === 'да' ? (plusOneName ? `Передайте привет ${plusOneName} 👋` : 'Ждём вас вдвоём 🥂') : ''}`, 'success');
-            } else {
-                showMessage('rsvpMessage', `💔 Жаль, что не сможете, ${name}. Чокнемся за ваше здоровье! 🥂`, 'success');
-            }
         });
+
+        const msgDiv = document.getElementById('rsvpMessage');
+        if (rsvpValue === 'yes') {
+            msgDiv.innerHTML = '🎉 Спасибо! Ждём вас с радостью!';
+            msgDiv.style.background = '#e8f5e9';
+        } else {
+            msgDiv.innerHTML = '💔 Очень жаль! Чокнемся за вас!';
+            msgDiv.style.background = '#ffebee';
+        }
+        setTimeout(() => { msgDiv.innerHTML = ''; msgDiv.style.background = ''; }, 3000);
     });
 
     // Алкоголь
@@ -780,184 +517,74 @@
     const drinkCards = document.querySelectorAll('.drink-card');
     const alcoholStatus = document.getElementById('alcoholSelectionStatus');
 
-    const limitJokes = [
-        '😄 Эй, алко-рекордсмен, хватит и этого!',
-        '🍻 Ого, ты собираешься нас напоить? Стоп-стоп, 3 максимум!',
-        '🧃 Сбавь обороты! 3 напитка — лимит любви 😘'
-    ];
-
     drinkCards.forEach(card => {
         card.addEventListener('click', () => {
             const drink = card.getAttribute('data-drink');
-            const index = selectedDrinks.indexOf(drink);
-            
-            if(index !== -1) {
-                selectedDrinks.splice(index, 1);
+            const idx = selectedDrinks.indexOf(drink);
+            if (idx !== -1) {
+                selectedDrinks.splice(idx, 1);
                 card.classList.remove('selected');
-                if(selectedDrinks.length === 0) {
-                    alcoholStatus.innerHTML = '';
-                } else {
-                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')} ✨`;
-                }
             } else {
-                if(selectedDrinks.length >= 3) {
-                    const randomJoke = limitJokes[Math.floor(Math.random() * limitJokes.length)];
-                    alcoholStatus.innerHTML = `❓ ${randomJoke}`;
-                    setTimeout(() => {
-                        if(selectedDrinks.length > 0) {
-                            alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')} ✨`;
-                        } else {
-                            alcoholStatus.innerHTML = '';
-                        }
-                    }, 2000);
+                if (selectedDrinks.length >= 3) {
+                    alcoholStatus.innerHTML = '❓ Не больше 3 напитков!';
+                    setTimeout(() => alcoholStatus.innerHTML = '', 1500);
                     return;
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
-                alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
             }
+            alcoholStatus.innerHTML = selectedDrinks.length ? `✨ Выбрано: ${selectedDrinks.join(', ')} ✨` : '';
         });
     });
 
-    // Отправка выбора алкоголя
-    document.getElementById('submitAlcohol').addEventListener('click', function() {
+    document.getElementById('submitAlcohol').addEventListener('click', () => {
         const name = document.getElementById('guestName').value.trim();
-        
-        if (!name) {
-            showMessage('alcoholSelectionStatus', '❓ Пожалуйста, сначала укажите ваше имя в форме выше', 'error');
-            setTimeout(() => {
-                if(selectedDrinks.length > 0) {
-                    alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')} ✨`;
-                } else {
-                    alcoholStatus.innerHTML = '';
-                }
-            }, 2000);
-            return;
-        }
-        
-        if (selectedDrinks.length === 0) {
-            showMessage('alcoholSelectionStatus', '❓ Выберите хотя бы один напиток', 'error');
-            return;
-        }
-        
-        const data = {
+        if (!name) { alert('Сначала укажите имя в левой колонке'); return; }
+        if (selectedDrinks.length === 0) { alert('Выберите напитки'); return; }
+
+        sendToSheet({
             type: "alcohol",
             name: name,
-            alcohol1: selectedDrinks[0] || "",
-            alcohol2: selectedDrinks[1] || "",
-            alcohol3: selectedDrinks[2] || "",
             alcoholAll: selectedDrinks.join(", "),
             timestamp: new Date().toLocaleString()
-        };
-        
-        sendToSheet(data, (success) => {
-            showMessage('alcoholSelectionStatus', `🍾 Спасибо! Ваш выбор (${selectedDrinks.join(", ")}) сохранён! Бармен уже в курсе 🥂`, 'success');
         });
-    });
 
-    function showMessage(elementId, text, type) {
-        const el = document.getElementById(elementId);
-        el.innerHTML = text;
-        el.style.background = type === 'success' ? 'rgba(201,160,108,0.2)' : 'rgba(200,150,140,0.2)';
-        el.style.padding = '0.8rem';
-        el.style.borderRadius = '2rem';
-        el.style.border = `1px solid ${type === 'success' ? '#c9a06c' : '#c9a06c'}`;
-        
+        alcoholStatus.innerHTML = '✅ Спасибо! Ваш выбор сохранён!';
         setTimeout(() => {
-            if (elementId === 'alcoholSelectionStatus' && selectedDrinks.length > 0) {
-                el.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')} ✨`;
-            } else if (elementId === 'alcoholSelectionStatus' && selectedDrinks.length === 0) {
-                el.innerHTML = '';
-                el.style.background = 'transparent';
-                el.style.border = 'none';
-            } else if (elementId !== 'alcoholSelectionStatus') {
-                el.innerHTML = '';
-                el.style.background = 'transparent';
-                el.style.border = 'none';
-            }
-        }, 3000);
-    }
-
-    // Кнопка "Понял"
-    const understandBtn = document.getElementById('understandBtn');
-    const giftBlock = document.querySelector('.gift-block');
-    
-    understandBtn.addEventListener('click', () => {
-        const jokes = [
-            '🥴 Спасибо, что поняли нас! Будем пить за ваше здоровье! 🍕',
-            '🍾 Спасибо! Вы — наш человек! 🥂',
-            '💪 Крепкое решение! Закуски уже в пути!'
-        ];
-        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-        
-        const msgDiv = document.createElement('div');
-        msgDiv.innerHTML = randomJoke;
-        msgDiv.style.marginTop = '1rem';
-        msgDiv.style.padding = '0.8rem';
-        msgDiv.style.background = 'rgba(212,175,122,0.2)';
-        msgDiv.style.borderRadius = '2rem';
-        msgDiv.style.animation = 'fadeInUp 0.4s ease-out';
-        
-        const oldMsg = giftBlock.querySelector('.gift-joke');
-        if(oldMsg) oldMsg.remove();
-        
-        msgDiv.classList.add('gift-joke');
-        giftBlock.appendChild(msgDiv);
-        setTimeout(() => msgDiv.remove(), 3000);
+            if (selectedDrinks.length) alcoholStatus.innerHTML = `✨ Ваш выбор: ${selectedDrinks.join(', ')} ✨`;
+            else alcoholStatus.innerHTML = '';
+        }, 2000);
     });
 
-    // Календарь
-    const calendarBtn = document.getElementById('calendarBtn');
-    calendarBtn.addEventListener('click', () => {
-        const eventTitle = 'Свадьба Андрея и Дарьи';
-        const startDate = '20260822T154000';
-        const endDate = '20260823T020000';
-        const location = 'ЗАГС: Свободный пер., 5; Банкет: отель Тверь, Петербургское ш., 130';
-        const description = 'Свадьба Андрея и Дарьи! Церемония в 15:40, банкет с 17:00. Ждём вас! 💕';
-        
-        const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//OurWedding//EN
-BEGIN:VEVENT
-UID:${Date.now()}@wedding
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-DTSTART:${startDate}
-DTEND:${endDate}
-SUMMARY:${eventTitle}
-DESCRIPTION:${description}
-LOCATION:${location}
-END:VEVENT
-END:VCALENDAR`;
-        
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    // Блок про цветы
+    document.getElementById('understandBtn').addEventListener('click', () => {
+        const jokes = ['🥴 Спасибо, что поняли!', '🍾 Вы — наш человек!', '💪 Крепкое решение!'];
+        const msg = document.createElement('div');
+        msg.innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
+        msg.style.marginTop = '1rem';
+        msg.style.padding = '0.5rem';
+        msg.style.background = 'rgba(212,175,122,0.2)';
+        msg.style.borderRadius = '2rem';
+        document.querySelector('.gift-block').appendChild(msg);
+        setTimeout(() => msg.remove(), 2000);
+    });
+
+    // Календарь и секрет
+    document.getElementById('calendarBtn').addEventListener('click', () => {
+        const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Свадьба Андрея и Дарьи\nDTSTART:20260822T154000\nDTEND:20260823T020000\nLOCATION:ЗАГС и отель Тверь\nEND:VEVENT\nEND:VCALENDAR`;
+        const blob = new Blob([ics], { type: 'text/calendar' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'wedding_invite.ics';
+        link.download = 'wedding.ics';
         link.click();
-        URL.revokeObjectURL(link.href);
-        
-        const msg = document.createElement('div');
-        msg.innerHTML = '✅ Добавлено в календарь! Ждём вас! 📅💕';
-        msg.style.position = 'fixed';
-        msg.style.bottom = '120px';
-        msg.style.right = '25px';
-        msg.style.background = '#c9a06c';
-        msg.style.color = 'white';
-        msg.style.padding = '10px 20px';
-        msg.style.borderRadius = '2rem';
-        msg.style.zIndex = '1001';
-        msg.style.fontSize = '0.9rem';
-        document.body.appendChild(msg);
-        setTimeout(() => msg.remove(), 3000);
     });
 
-    // Секрет
     const secretBtn = document.getElementById('secretBtn');
     const secretModal = document.getElementById('secretModal');
     const closeSecret = document.getElementById('closeSecretModal');
     secretBtn.onclick = () => secretModal.style.display = 'flex';
     closeSecret.onclick = () => secretModal.style.display = 'none';
-    window.onclick = (e) => { if(e.target === secretModal) secretModal.style.display = 'none'; };
+    window.onclick = (e) => { if (e.target === secretModal) secretModal.style.display = 'none'; };
 </script>
 </body>
 </html>
