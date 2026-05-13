@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Андрей & Дарья | Свадебное приглашение | 22 августа 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         * {
@@ -14,8 +14,8 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e0f0da 0%, #c8e0c4 100%);
-            color: #1a3b1a;
+            background: linear-gradient(135deg, #fdf8f5 0%, #f9ede8 50%, #f5e6e0 100%);
+            color: #4a3b32;
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
             overflow-x: hidden;
@@ -31,13 +31,10 @@
         h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #5a9e5a;
+            border-left: 3px solid #d4af7a;
             padding-left: 1rem;
             display: inline-block;
-            background: linear-gradient(135deg, #2d5a2d, #5a9e5a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #8b5e5e;
         }
 
         .container {
@@ -46,92 +43,82 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero */
+        /* Hero секция */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(90,158,90,0.15) 0%, rgba(0,0,0,0.1) 100%);
-            backdrop-filter: blur(2px);
         }
 
         .hero-content {
             position: relative;
-            background: rgba(255, 255, 245, 0.25);
+            background: rgba(255, 248, 240, 0.25);
             backdrop-filter: blur(12px);
             border-radius: 3rem;
             padding: 3rem;
             max-width: 90%;
             width: 100%;
-            border: 1px solid rgba(90,158,90,0.5);
+            border: 1px solid rgba(212, 175, 122, 0.5);
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             animation: floatGlass 6s infinite ease-in-out;
         }
 
         @keyframes floatGlass {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-6px); }
         }
 
         .initials {
             font-size: 8rem;
-            font-weight: 700;
+            font-weight: 600;
             font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 12px;
-            background: linear-gradient(135deg, #f5fff5, #8bc48a);
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #fff5ee, #d4af7a, #c9a06c);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(90,158,90,0.5);
-            animation: pulseGlow 2.5s infinite ease-in-out;
+            text-shadow: 0 0 20px rgba(212,175,122,0.3);
+            animation: pulseGold 2.5s infinite ease-in-out;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { text-shadow: 0 0 10px rgba(90,158,90,0.3); letter-spacing: 12px; }
-            50% { text-shadow: 0 0 30px rgba(90,158,90,0.8); letter-spacing: 14px; }
+        @keyframes pulseGold {
+            0%, 100% { text-shadow: 0 0 10px rgba(212,175,122,0.3); letter-spacing: 8px; }
+            50% { text-shadow: 0 0 25px rgba(212,175,122,0.6); letter-spacing: 9px; }
         }
 
         .date-badge {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-top: 1.5rem;
             font-weight: 300;
             letter-spacing: 2px;
-            color: #f0fff0;
+            color: #fff5ee;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Стеклянные блоки — светлые */
+        /* Карточки */
         .glass-card {
-            background: rgba(255, 255, 245, 0.85);
+            background: rgba(255, 248, 240, 0.85);
             backdrop-filter: blur(8px);
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid rgba(90,158,90,0.3);
+            border: 1px solid rgba(212, 175, 122, 0.3);
             box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
         .glass-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 245, 0.95);
-            border-color: rgba(90,158,90,0.6);
+            transform: translateY(-3px);
+            background: rgba(255, 248, 240, 0.95);
+            border-color: rgba(212, 175, 122, 0.6);
         }
 
-        /* Фото-блоки */
+        /* Фото галерея */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -140,41 +127,36 @@
         }
 
         .photo-card {
-            background: rgba(255,255,245,0.9);
-            border-radius: 1.5rem;
+            background: rgba(255,248,240,0.95);
+            border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.4s ease;
             cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .photo-card:hover {
-            transform: scale(1.02) translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
 
         .photo-placeholder {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #d4e8d4, #b8d4b0);
+            background: linear-gradient(135deg, #f5e6e0, #ecd9d0);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: #5a9e5a;
-            transition: all 0.3s;
-        }
-
-        .photo-card:hover .photo-placeholder {
-            background: linear-gradient(135deg, #c8e0c4, #a8c8a0);
+            color: #d4af7a;
         }
 
         .photo-caption {
             padding: 1rem;
             text-align: center;
             font-weight: 500;
-            color: #2d5a2d;
             background: white;
+            color: #8b5e5e;
         }
 
         /* Таймер */
@@ -187,30 +169,34 @@
         }
 
         .timer-block {
-            background: rgba(255,255,245,0.7);
-            backdrop-filter: blur(4px);
+            background: rgba(255,248,240,0.8);
             padding: 1.2rem 1.8rem;
-            border-radius: 2rem;
-            min-width: 100px;
+            border-radius: 1.5rem;
+            min-width: 95px;
+            text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(90,158,90,0.3);
+            border: 1px solid rgba(212,175,122,0.3);
         }
 
         .timer-block:hover {
-            transform: scale(1.05) translateY(-5px);
-            background: rgba(90,158,90,0.15);
+            transform: scale(1.05);
+            background: rgba(255,248,240,0.95);
         }
 
         .timer-number {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #2d5a2d, #6aaa6a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #c9a06c;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        /* RSVP */
+        .timer-label {
+            font-size: 0.8rem;
+            color: #9e6b6b;
+            letter-spacing: 1px;
+        }
+
+        /* RSVP - ИСПРАВЛЕНО */
         .rsvp-options {
             display: flex;
             gap: 1rem;
@@ -220,98 +206,104 @@
 
         .rsvp-btn {
             padding: 1rem 2rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 3rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             font-weight: 600;
+            font-family: 'Inter', sans-serif;
         }
 
         .rsvp-yes {
-            background: #5a9e5a;
+            background: #c9a06c;
             color: white;
         }
 
         .rsvp-yes:hover {
-            background: #3d7a3d;
-            transform: scale(1.05);
+            background: #b88855;
+            transform: scale(1.02);
         }
 
         .rsvp-no {
-            background: #c8dcc4;
-            color: #2c5a2c;
+            background: #e8ddd5;
+            color: #8b5e5e;
         }
 
         .rsvp-no:hover {
-            background: #b0d0a8;
-            transform: scale(1.05);
+            background: #dccfc5;
+            transform: scale(1.02);
         }
 
         .rsvp-message {
             text-align: center;
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 2rem;
             margin-top: 1rem;
-            animation: bounceMsg 0.6s ease-out;
-        }
-
-        @keyframes bounceMsg {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.05); }
-            100% { transform: scale(1); }
+            font-size: 0.95rem;
+            transition: all 0.3s;
         }
 
         /* Алкоголь */
         .drinks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1.2rem;
             margin: 2rem 0;
         }
 
         .drink-card {
-            background: rgba(255,255,245,0.8);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
+            background: rgba(255,248,240,0.9);
+            border-radius: 1rem;
+            padding: 1.2rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid rgba(90,158,90,0.2);
+            border: 1px solid rgba(212,175,122,0.2);
         }
 
         .drink-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             background: white;
-            border-color: #5a9e5a;
+            border-color: #d4af7a;
         }
 
         .drink-card.selected {
-            background: rgba(90,158,90,0.2);
-            border-color: #5a9e5a;
+            background: #f9ede8;
+            border-color: #c9a06c;
             transform: scale(1.02);
         }
 
         .drink-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Соцсети */
+        /* Социальные кнопки */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
         .social-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            background: #5a9e5a;
+            padding: 0.7rem 1.6rem;
+            background: #c9a06c;
             color: white;
             text-decoration: none;
             border-radius: 3rem;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .social-btn:hover {
-            background: #3d7a3d;
-            transform: translateY(-3px);
+            background: #b88855;
+            transform: translateY(-2px);
         }
 
         /* Плавающие кнопки */
@@ -326,29 +318,30 @@
         }
 
         .float-btn {
-            background: rgba(90,158,90,0.9);
+            background: rgba(201, 160, 108, 0.9);
             backdrop-filter: blur(4px);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 12px 24px;
+            padding: 10px 22px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
         }
 
         .float-btn:hover {
             transform: scale(1.05);
-            background: #5a9e5a;
+            background: #c9a06c;
         }
 
         .secret-btn {
-            animation: pulseGreen 2s infinite;
+            animation: pulseRose 2s infinite;
         }
 
-        @keyframes pulseGreen {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(90,158,90,0.7); }
-            50% { box-shadow: 0 0 0 8px rgba(90,158,90,0); }
+        @keyframes pulseRose {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201,160,108,0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(201,160,108,0); }
         }
 
         /* Модалки */
@@ -367,31 +360,26 @@
         }
 
         .modal-content {
-            background: rgba(255,255,245,0.98);
+            background: rgba(255,250,245,0.98);
             max-width: 450px;
             width: 90%;
             padding: 2rem;
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             text-align: center;
-            border: 1px solid #5a9e5a;
-            animation: modalPop 0.3s ease-out;
-        }
-
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            border: 1px solid #d4af7a;
         }
 
         .modal-content input {
             width: 100%;
             padding: 0.8rem;
             margin: 0.5rem 0;
-            border: 1px solid #5a9e5a;
+            border: 1px solid #d4af7a;
             border-radius: 2rem;
+            font-family: 'Inter', sans-serif;
         }
 
         .modal-content button {
-            background: #5a9e5a;
+            background: #c9a06c;
             color: white;
             border: none;
             padding: 0.8rem 1.5rem;
@@ -402,22 +390,25 @@
 
         .close-modal {
             float: right;
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            color: #5a9e5a;
+            color: #c9a06c;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: rgba(45,70,35,0.8);
-            color: #eaf5ea;
+            background: rgba(75, 55, 45, 0.9);
+            color: #f5e6e0;
+            margin-top: 2rem;
         }
 
         @media (max-width: 768px) {
-            .initials { font-size: 4rem; letter-spacing: 6px; }
+            .initials { font-size: 4rem; letter-spacing: 4px; }
             .timer-number { font-size: 2rem; }
             .photo-placeholder { height: 200px; }
+            .rsvp-options { flex-direction: column; align-items: center; }
+            .rsvp-btn { width: 80%; }
         }
     </style>
 </head>
@@ -427,7 +418,7 @@
     <div class="hero-content">
         <div class="initials">А&Д</div>
         <div class="date-badge">22 августа 2026</div>
-        <div style="font-size:0.95rem; margin-top:0.8rem;">Церемония 15:40 | Банкет 17:00</div>
+        <div style="font-size:0.9rem; margin-top:0.8rem; color:#fff5ee;">Церемония 15:40 | Банкет 17:00</div>
     </div>
 </section>
 
@@ -436,52 +427,46 @@
     <div class="glass-card" data-aos="fade-up">
         <h2>До свадьбы осталось</h2>
         <div class="timer" id="countdown-timer">
-            <div class="timer-block"><div class="timer-number" id="days">00</div><div>Дней</div></div>
-            <div class="timer-block"><div class="timer-number" id="hours">00</div><div>Часов</div></div>
-            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div>Минут</div></div>
-            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div>Секунд</div></div>
+            <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">Дней</div></div>
+            <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">Часов</div></div>
+            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">Минут</div></div>
+            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">Секунд</div></div>
         </div>
     </div>
 
     <!-- Приглашение -->
     <div class="glass-card" data-aos="fade-right">
         <h2>Дорогие гости!</h2>
-        <p style="font-size:1.2rem; margin:1.5rem 0;">Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни.<br>Ваше присутствие — лучший подарок для нас.</p>
-        <p style="font-style:italic; color:#5a9e5a;">✨ Ждём вас в этот особенный день ✨</p>
+        <p style="font-size:1.2rem; margin:1rem 0;">Мы счастливы пригласить вас разделить с нами один из самых важных дней в нашей жизни. Ваше присутствие — лучший подарок для нас.</p>
+        <p style="font-style:italic; color:#c9a06c;">✨ Ждём вас в этот особенный день ✨</p>
     </div>
 
-    <!-- ФОТОГАЛЕРЕЯ (прямоугольники) -->
+    <!-- Фотогалерея -->
     <div data-aos="fade-up">
         <h2>Наши моменты</h2>
         <div class="photo-gallery">
             <div class="photo-card">
-                <div class="photo-placeholder">
-                    📸
-                </div>
+                <div class="photo-placeholder">📸</div>
                 <div class="photo-caption">Наше фото — скоро здесь</div>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder">
-                    💑
-                </div>
+                <div class="photo-placeholder">💑</div>
                 <div class="photo-caption">И ещё одно</div>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder">
-                    ✨
-                </div>
+                <div class="photo-placeholder">✨</div>
                 <div class="photo-caption">Момент счастья</div>
             </div>
         </div>
     </div>
 
-    <!-- RSVP (ПОЧИНЕНА АНИМАЦИЯ) -->
+    <!-- RSVP - ИСПРАВЛЕНО -->
     <div class="glass-card" data-aos="fade-left">
         <h2>Подтвердите присутствие</h2>
-        <p>До 1 июля 2026</p>
+        <p style="color:#9e6b6b;">Пожалуйста, ответьте до 1 июля 2026</p>
         <div class="rsvp-options">
-            <button class="rsvp-btn rsvp-yes" onclick="handleRSVP('yes')">✅ Я буду!</button>
-            <button class="rsvp-btn rsvp-no" onclick="handleRSVP('no')">❌ Не смогу</button>
+            <button class="rsvp-btn rsvp-yes" id="rsvpYesBtn">✅ Я буду!</button>
+            <button class="rsvp-btn rsvp-no" id="rsvpNoBtn">❌ Не смогу</button>
         </div>
         <div id="rsvpMessage" class="rsvp-message"></div>
     </div>
@@ -489,67 +474,67 @@
     <!-- Алкоголь -->
     <div class="glass-card" data-aos="zoom-in">
         <h2>Что предпочитаете из алкоголя?</h2>
-        <p>Выберите до 3 вариантов</p>
+        <p>Выберите до 3 вариантов 🥂</p>
         <div class="drinks-grid" id="drinksGrid">
             <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
             <div class="drink-card" data-drink="Водка"><div class="drink-icon">🥃</div><div>Водка</div></div>
             <div class="drink-card" data-drink="Виски"><div class="drink-icon">🥃✨</div><div>Виски</div></div>
             <div class="drink-card" data-drink="Коньяк"><div class="drink-icon">🥃🌟</div><div>Коньяк</div></div>
-            <div class="drink-card" data-drink="Самогон"><div class="drink-icon">🔥</div><div>Самогон</div></div>
+            <div class="drink-card" data-drink="Шампанское"><div class="drink-icon">🥂</div><div>Шампанское</div></div>
         </div>
-        <div id="alcoholSelectionStatus" style="text-align:center; margin-top:1rem; color:#5a9e5a;"></div>
+        <div id="alcoholSelectionStatus" style="text-align:center; margin-top:1rem; color:#c9a06c; font-size:0.9rem;"></div>
     </div>
 
     <!-- Локации -->
     <div class="glass-card" data-aos="fade-up">
         <h2>Места проведения</h2>
-        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin:1.5rem 0;">
-            <div style="flex:1; background:rgba(255,255,245,0.7); padding:1rem; border-radius:1rem;">
-                <h3>📖 ЗАГС</h3>
-                <p>Свободный пер., 5<br>15:40</p>
-                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#5a9e5a;">Карта →</a>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
+            <div style="flex:1; background:rgba(255,248,240,0.7); padding:1rem; border-radius:1rem;">
+                <h3 style="color:#8b5e5e;">📖 ЗАГС</h3>
+                <p>Свободный пер., 5<br>🕒 15:40</p>
+                <a href="https://yandex.ru/maps/-/CPgRn0kJ" target="_blank" style="color:#c9a06c;">Карта →</a>
             </div>
-            <div style="flex:1; background:rgba(255,255,245,0.7); padding:1rem; border-radius:1rem;">
-                <h3>🍾 Отель «Тверь»</h3>
-                <p>Петербургское ш., 130<br>17:00</p>
-                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#5a9e5a;">Карта →</a>
+            <div style="flex:1; background:rgba(255,248,240,0.7); padding:1rem; border-radius:1rem;">
+                <h3 style="color:#8b5e5e;">🍾 Отель «Тверь»</h3>
+                <p>Петербургское ш., 130<br>🕒 17:00</p>
+                <a href="https://yandex.ru/maps/-/CPgRrYjS" target="_blank" style="color:#c9a06c;">Карта →</a>
             </div>
         </div>
-        <p style="text-align:center;">🚌 Трансфер до банкета будет организован</p>
+        <p style="text-align:center; color:#9e6b6b;">🚌 Трансфер до банкета будет организован</p>
     </div>
 
     <!-- Соцсети -->
     <div class="glass-card" data-aos="fade-up" style="text-align:center;">
         <h2>Свяжитесь с нами</h2>
-        <div style="display:flex; justify-content:center; gap:1.5rem; margin:1.5rem 0; flex-wrap:wrap;">
+        <div class="social-links">
             <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
             <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
         </div>
-        <p>Дресс-код свободный 🌿</p>
+        <p style="color:#9e6b6b;">Дресс-код свободный, приветствуются светлые оттенки</p>
     </div>
 </div>
 
 <footer>
     <p>Андрей & Дарья · 22 августа 2026 · Тверь</p>
-    <p>Ждём вас с нетерпением! 💚</p>
+    <p>Ждём вас с нетерпением! 💕</p>
 </footer>
 
 <!-- Кнопки -->
 <div class="floating-buttons">
     <button class="float-btn" id="remindBtn">🔔 Напомнить</button>
-    <button class="float-btn secret-btn" id="secretBtn">💚 Секретик</button>
+    <button class="float-btn secret-btn" id="secretBtn">💌 Секретик</button>
 </div>
 
 <!-- Модалка напоминания -->
 <div id="remindModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeRemindModal">&times;</span>
-        <div style="font-size:2.5rem;">📅</div>
-        <h3>Напомнить о свадьбе</h3>
+        <div style="font-size:2rem;">📅🥂</div>
+        <h3 style="color:#8b5e5e;">Напомнить о свадьбе</h3>
         <input type="text" id="remindName" placeholder="Ваше имя">
         <input type="email" id="remindEmail" placeholder="Ваш email">
         <button id="sendRemindBtn">Отправить</button>
-        <p id="remindStatus" style="margin-top:0.8rem;"></p>
+        <p id="remindStatus" style="margin-top:0.8rem; font-size:0.85rem;"></p>
     </div>
 </div>
 
@@ -557,10 +542,10 @@
 <div id="secretModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeSecretModal">&times;</span>
-        <div style="font-size:3rem;">🤫🌿</div>
-        <h3>Секрет второго дня</h3>
-        <p>Будет продолжение! Тёплые посиделки, игры, душевные разговоры.</p>
-        <p><strong>Скоро всё узнаете!</strong> 💚</p>
+        <div style="font-size:2.5rem;">🤫💕</div>
+        <h3 style="color:#8b5e5e;">Секрет второго дня</h3>
+        <p>Будет продолжение!<br>Тёплые посиделки, игры, душевные разговоры.</p>
+        <p><strong style="color:#c9a06c;">Скоро всё узнаете!</strong> Мы обязательно расскажем</p>
     </div>
 </div>
 
@@ -582,69 +567,100 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // RSVP — ПОЧИНЕНА АНИМАЦИЯ
-    window.handleRSVP = function(answer) {
-        const msgDiv = document.getElementById('rsvpMessage');
-        if(answer === 'yes') {
-            msgDiv.innerHTML = '🎉 Спасибо большое! Ждём вас с огромной радостью! Готовьте танцевальные ноги — будет незабываемо! 💚';
-            msgDiv.style.background = 'rgba(90,158,90,0.2)';
-            msgDiv.style.color = '#2d5a2d';
-        } else {
-            msgDiv.innerHTML = '💔 Очень жаль, что не сможете быть. Спасибо, что предупредили! Чокнемся за ваше здоровье 🥂';
-            msgDiv.style.background = 'rgba(200,150,140,0.15)';
-            msgDiv.style.color = '#8b5a4a';
-        }
-        msgDiv.style.padding = '1rem';
-        msgDiv.style.borderRadius = '2rem';
-        // Анимация уже есть через CSS класс .rsvp-message
-        setTimeout(() => {
-            msgDiv.style.background = 'transparent';
-            msgDiv.innerHTML = '';
-        }, 3000);
-    };
+    // RSVP - ПОЛНОСТЬЮ ИСПРАВЛЕНО
+    const rsvpYesBtn = document.getElementById('rsvpYesBtn');
+    const rsvpNoBtn = document.getElementById('rsvpNoBtn');
+    const rsvpMessageDiv = document.getElementById('rsvpMessage');
 
-    // Алкоголь
+    function showMessage(type) {
+        if(type === 'yes') {
+            rsvpMessageDiv.innerHTML = '🎉 Спасибо большое! Ждём вас с огромной радостью! Готовьте танцевальные ноги — будет незабываемо! 💕';
+            rsvpMessageDiv.style.background = 'rgba(201,160,108,0.15)';
+            rsvpMessageDiv.style.color = '#8b5e5e';
+            rsvpMessageDiv.style.border = '1px solid #d4af7a';
+        } else {
+            rsvpMessageDiv.innerHTML = '💔 Очень жаль, что не сможете быть. Спасибо, что предупредили! Чокнемся за ваше здоровье 🥂';
+            rsvpMessageDiv.style.background = 'rgba(200,150,140,0.1)';
+            rsvpMessageDiv.style.color = '#9e6b6b';
+            rsvpMessageDiv.style.border = '1px solid #e8ddd5';
+        }
+        rsvpMessageDiv.style.padding = '0.8rem';
+        rsvpMessageDiv.style.borderRadius = '2rem';
+        
+        setTimeout(() => {
+            rsvpMessageDiv.innerHTML = '';
+            rsvpMessageDiv.style.background = 'transparent';
+            rsvpMessageDiv.style.border = 'none';
+        }, 3000);
+    }
+
+    rsvpYesBtn.addEventListener('click', () => showMessage('yes'));
+    rsvpNoBtn.addEventListener('click', () => showMessage('no'));
+
+    // Алкоголь выбор
     let selectedDrinks = [];
-    const cards = document.querySelectorAll('.drink-card');
-    const statusSpan = document.getElementById('alcoholSelectionStatus');
-    cards.forEach(card => {
+    const drinkCards = document.querySelectorAll('.drink-card');
+    const alcoholStatus = document.getElementById('alcoholSelectionStatus');
+
+    drinkCards.forEach(card => {
         card.addEventListener('click', () => {
             const drink = card.getAttribute('data-drink');
-            const idx = selectedDrinks.indexOf(drink);
-            if(idx !== -1) {
-                selectedDrinks.splice(idx,1);
+            const index = selectedDrinks.indexOf(drink);
+            
+            if(index !== -1) {
+                selectedDrinks.splice(index, 1);
                 card.classList.remove('selected');
             } else {
                 if(selectedDrinks.length >= 3) {
-                    statusSpan.innerText = '❓ Не больше 3 напитков!';
-                    setTimeout(() => statusSpan.innerText = '', 1500);
+                    alcoholStatus.innerText = '❓ Можно выбрать не больше 3 напитков!';
+                    setTimeout(() => alcoholStatus.innerText = '', 1500);
                     return;
                 }
                 selectedDrinks.push(drink);
                 card.classList.add('selected');
             }
-            if(selectedDrinks.length) statusSpan.innerText = `✨ Вы выбрали: ${selectedDrinks.join(', ')} ✨`;
-            else statusSpan.innerText = '';
+            
+            if(selectedDrinks.length > 0) {
+                alcoholStatus.innerHTML = `✨ Вы выбрали: ${selectedDrinks.join(', ')}. Отличный выбор! 🥂 ✨`;
+                alcoholStatus.style.background = 'rgba(212,175,122,0.1)';
+                alcoholStatus.style.padding = '0.5rem';
+                alcoholStatus.style.borderRadius = '2rem';
+            } else {
+                alcoholStatus.innerHTML = '';
+                alcoholStatus.style.background = 'transparent';
+            }
         });
     });
 
-    // Капли
-    function createDrop() {
-        const drop = document.createElement('div');
-        drop.innerHTML = '💧';
-        drop.style.position = 'fixed';
-        drop.style.left = Math.random() * 100 + '%';
-        drop.style.top = '-20px';
-        drop.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        drop.style.opacity = Math.random() * 0.4 + 0.2;
-        drop.style.pointerEvents = 'none';
-        drop.style.zIndex = '999';
-        drop.style.transition = 'top 4s linear, opacity 2s';
-        document.body.appendChild(drop);
-        setTimeout(() => { drop.style.top = '100vh'; drop.style.opacity = '0'; }, 10);
-        setTimeout(() => drop.remove(), 4000);
+    // Звёзды и шампанское (вместо капель)
+    function createSparkle() {
+        const items = ['✨', '⭐', '🌟', '🥂', '💫', '🎆'];
+        const el = document.createElement('div');
+        el.innerHTML = items[Math.floor(Math.random() * items.length)];
+        el.style.position = 'fixed';
+        el.style.left = Math.random() * 100 + '%';
+        el.style.top = '-30px';
+        el.style.fontSize = (Math.random() * 24 + 16) + 'px';
+        el.style.opacity = Math.random() * 0.6 + 0.3;
+        el.style.pointerEvents = 'none';
+        el.style.zIndex = '999';
+        el.style.transition = 'top 4s linear, opacity 2s, transform 2s';
+        document.body.appendChild(el);
+        setTimeout(() => {
+            el.style.top = '100vh';
+            el.style.opacity = '0';
+            el.style.transform = `rotate(${Math.random() * 360}deg)`;
+        }, 10);
+        setTimeout(() => el.remove(), 4000);
     }
-    setInterval(() => { for(let i=0;i<2;i++) setTimeout(createDrop, i*300); }, 6000);
+    
+    setInterval(() => {
+        for(let i = 0; i < 3; i++) setTimeout(createSparkle, i * 200);
+    }, 5000);
+    
+    setTimeout(() => {
+        for(let i = 0; i < 5; i++) setTimeout(createSparkle, i * 300);
+    }, 500);
 
     // Модалки
     const remindBtn = document.getElementById('remindBtn');
@@ -655,16 +671,16 @@
 
     remindBtn.onclick = () => remindModal.style.display = 'flex';
     closeRemind.onclick = () => remindModal.style.display = 'none';
-
     sendRemindBtn.onclick = () => {
         const name = document.getElementById('remindName').value.trim();
         const email = document.getElementById('remindEmail').value.trim();
         if(!name || !email) {
             remindStatus.innerText = '❓ Укажите имя и email';
+            remindStatus.style.color = '#c9a06c';
             return;
         }
-        remindStatus.innerText = '✅ Спасибо! Напомним за 3 и за 1 день 💚';
-        remindStatus.style.color = '#2e7d32';
+        remindStatus.innerText = '✅ Спасибо! Напомним за 3 и за 1 день до свадьбы 💕';
+        remindStatus.style.color = '#8b5e5e';
         document.getElementById('remindName').value = '';
         document.getElementById('remindEmail').value = '';
         setTimeout(() => {
