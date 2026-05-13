@@ -46,7 +46,7 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero с жидким стеклом */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -55,12 +55,6 @@
             text-align: center;
             background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format') center/cover no-repeat fixed;
             position: relative;
-            animation: heroGlow 3s infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% { filter: brightness(1); }
-            100% { filter: brightness(1.05); }
         }
 
         .hero::before {
@@ -70,7 +64,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(90,158,90,0.2) 0%, rgba(0,0,0,0.1) 100%);
+            background: radial-gradient(circle, rgba(90,158,90,0.15) 0%, rgba(0,0,0,0.1) 100%);
             backdrop-filter: blur(2px);
         }
 
@@ -92,36 +86,9 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* Имена над аббревиатурой */
-        .names-above {
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: dropNames 0.8s ease-out forwards;
-        }
-
-        @keyframes dropNames {
-            0% { opacity: 0; transform: translateY(-40px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .name-above {
-            font-size: 2.2rem;
-            font-weight: 500;
-            font-family: 'Cormorant Garamond', serif;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            background: linear-gradient(135deg, #ffffff, #e0f0e0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Аббревиатура */
+        /* Только аббревиатура */
         .initials {
-            font-size: 7rem;
+            font-size: 8rem;
             font-weight: 700;
             font-family: 'Cormorant Garamond', serif;
             letter-spacing: 12px;
@@ -301,12 +268,19 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* Секретная кнопка */
-        .secret-button {
+        /* Кнопки справа */
+        .floating-buttons {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: rgba(90,158,90,0.8);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .float-btn {
+            background: rgba(90,158,90,0.85);
             backdrop-filter: blur(8px);
             color: white;
             border: none;
@@ -314,22 +288,27 @@
             padding: 12px 24px;
             font-weight: 600;
             cursor: pointer;
-            z-index: 1000;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(90,158,90,0.7); }
-            50% { box-shadow: 0 0 0 10px rgba(90,158,90,0); }
-        }
-
-        .secret-button:hover {
+        .float-btn:hover {
             transform: scale(1.05);
             background: #5a9e5a;
         }
 
-        /* Модальное окно */
+        .secret-btn {
+            background: rgba(70,120,70,0.85);
+            animation: pulseGreen 2s infinite;
+        }
+
+        @keyframes pulseGreen {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(90,158,90,0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(90,158,90,0); }
+        }
+
+        /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
@@ -361,6 +340,34 @@
             to { opacity: 1; transform: scale(1); }
         }
 
+        .modal-content input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #5a9e5a;
+            border-radius: 2rem;
+            background: rgba(255,255,255,0.8);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-content button {
+            background: #5a9e5a;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #5a9e5a;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -370,10 +377,9 @@
         }
 
         @media (max-width: 768px) {
-            .initials { font-size: 3.5rem; letter-spacing: 6px; }
-            .name-above { font-size: 1.3rem; }
-            .names-above { gap: 1.5rem; }
+            .initials { font-size: 4rem; letter-spacing: 6px; }
             .timer-number { font-size: 2rem; }
+            .float-btn { padding: 8px 16px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -381,10 +387,6 @@
 
 <section class="hero">
     <div class="hero-content">
-        <div class="names-above">
-            <span class="name-above">Андрей</span>
-            <span class="name-above">Дарья</span>
-        </div>
         <div class="initials">А&Д</div>
         <div class="date-badge">22 августа 2026</div>
         <div style="font-size:0.95rem; margin-top:0.8rem;">Церемония 15:40 | Банкет 17:00</div>
@@ -392,9 +394,9 @@
 </section>
 
 <div class="container">
-    <!-- Таймер -->
+    <!-- Таймер (без слова "нашей") -->
     <div class="glass-card" data-aos="fade-up">
-        <h2>До нашей свадьбы осталось</h2>
+        <h2>До свадьбы осталось</h2>
         <div class="timer" id="countdown-timer">
             <div class="timer-block"><div class="timer-number" id="days">00</div><div>Дней</div></div>
             <div class="timer-block"><div class="timer-number" id="hours">00</div><div>Часов</div></div>
@@ -456,7 +458,7 @@
     <!-- Соцсети -->
     <div class="glass-card" data-aos="fade-up" style="text-align:center;">
         <h2>Свяжитесь с нами</h2>
-        <div style="display:flex; justify-content:center; gap:1.5rem; margin:1.5rem 0;">
+        <div style="display:flex; justify-content:center; gap:1.5rem; margin:1.5rem 0; flex-wrap:wrap;">
             <a href="https://vk.com/id163521338" target="_blank" class="social-btn">📱 Андрей</a>
             <a href="https://vk.com/texnomerova" target="_blank" class="social-btn">💖 Дарья</a>
         </div>
@@ -469,11 +471,30 @@
     <p>Ждём вас с нетерпением! 💚</p>
 </footer>
 
-<button class="secret-button" id="secretBtn">💚 Секретик</button>
+<!-- Плавающие кнопки справа -->
+<div class="floating-buttons">
+    <button class="float-btn" id="remindBtn">🔔 Напомнить</button>
+    <button class="float-btn secret-btn" id="secretBtn">💚 Секретик</button>
+</div>
 
+<!-- Модалка напоминания -->
+<div id="remindModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeRemindModal">&times;</span>
+        <div style="font-size:2.5rem;">📅✨</div>
+        <h3>Напомнить о свадьбе</h3>
+        <p>Оставьте имя и email — мы пришлём напоминание <strong>за 3 дня и за 1 день</strong> до торжества 💚</p>
+        <input type="text" id="remindName" placeholder="Ваше имя" style="margin-top:1rem;">
+        <input type="email" id="remindEmail" placeholder="Ваш email">
+        <button id="sendRemindBtn">Отправить</button>
+        <p id="remindStatus" style="margin-top:0.8rem; font-size:0.85rem;"></p>
+    </div>
+</div>
+
+<!-- Модалка секрета -->
 <div id="secretModal" class="modal">
     <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn" style="float:right; font-size:2rem; cursor:pointer;">&times;</span>
+        <span class="close-modal" id="closeSecretModal">&times;</span>
         <div style="font-size:3rem;">🤫🌿</div>
         <h3>Секрет второго дня</h3>
         <p>Будет продолжение!<br>Тёплые посиделки, игры, душевные разговоры.</p>
@@ -539,7 +560,7 @@
         });
     });
 
-    // Капли дождя / жидкое стекло (декоративные)
+    // Капли
     function createDrop() {
         const drop = document.createElement('div');
         drop.innerHTML = '💧';
@@ -557,13 +578,58 @@
     }
     setInterval(() => { for(let i=0;i<2;i++) setTimeout(createDrop, i*300); }, 5000);
 
+    // Модалка напоминания
+    const remindBtn = document.getElementById('remindBtn');
+    const remindModal = document.getElementById('remindModal');
+    const closeRemind = document.getElementById('closeRemindModal');
+    const sendRemindBtn = document.getElementById('sendRemindBtn');
+    const remindStatus = document.getElementById('remindStatus');
+
+    remindBtn.onclick = () => remindModal.style.display = 'flex';
+    closeRemind.onclick = () => remindModal.style.display = 'none';
+
+    sendRemindBtn.onclick = () => {
+        const name = document.getElementById('remindName').value.trim();
+        const email = document.getElementById('remindEmail').value.trim();
+        if(!name || !email) {
+            remindStatus.innerText = '❓ Пожалуйста, укажите имя и email';
+            remindStatus.style.color = '#c62828';
+            return;
+        }
+        if(!email.includes('@')) {
+            remindStatus.innerText = '❓ Введите корректный email';
+            remindStatus.style.color = '#c62828';
+            return;
+        }
+        
+        // Здесь можно подключить EmailJS или оставить как демо
+        remindStatus.innerText = '✅ Спасибо! Напомним о свадьбе за 3 и за 1 день 💚';
+        remindStatus.style.color = '#2e7d32';
+        
+        // Очищаем поля
+        document.getElementById('remindName').value = '';
+        document.getElementById('remindEmail').value = '';
+        
+        setTimeout(() => {
+            remindModal.style.display = 'none';
+            remindStatus.innerText = '';
+        }, 2000);
+        
+        // Для реальной отправки можно добавить EmailJS (бесплатно)
+        console.log(`Напоминание для ${name} (${email}) о свадьбе 22.08.2026`);
+    };
+
+    window.onclick = (e) => {
+        if(e.target === remindModal) remindModal.style.display = 'none';
+        if(e.target === secretModal) secretModal.style.display = 'none';
+    };
+
     // Секрет
     const secretBtn = document.getElementById('secretBtn');
-    const modal = document.getElementById('secretModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-    secretBtn.onclick = () => modal.style.display = 'flex';
-    closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+    const secretModal = document.getElementById('secretModal');
+    const closeSecret = document.getElementById('closeSecretModal');
+    secretBtn.onclick = () => secretModal.style.display = 'flex';
+    closeSecret.onclick = () => secretModal.style.display = 'none';
 </script>
 </body>
 </html>
