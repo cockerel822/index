@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Андрей & Дарья | Свадебное приглашение | 22 августа 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         * {
@@ -129,6 +130,32 @@
             0% { opacity: 0.9; text-shadow: 0 2px 8px rgba(0,0,0,0.3); transform: scale(1);}
             50% { opacity: 1; text-shadow: 0 0 20px rgba(212,175,122,0.8), 0 2px 8px rgba(0,0,0,0.3); transform: scale(1.01);}
             100% { opacity: 0.9; text-shadow: 0 2px 8px rgba(0,0,0,0.3); transform: scale(1);}
+        }
+
+        /* Тёплые слова — каллиграфический шрифт */
+        .welcome-text {
+            text-align: center;
+            margin: 2rem auto 1rem;
+            max-width: 800px;
+        }
+        .welcome-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #8b5e5e;
+            background: rgba(255, 248, 240, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 1.2rem 2rem;
+            border-radius: 3rem;
+            display: inline-block;
+            border: 1px solid rgba(212, 175, 122, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            line-height: 1.4;
+        }
+        @media (max-width: 600px) {
+            .welcome-message {
+                font-size: 1.4rem;
+                padding: 0.8rem 1.2rem;
+            }
         }
 
         .glass-card {
@@ -468,6 +495,17 @@
     </div>
 </section>
 
+<!-- Тёплые слова под шапкой -->
+<div class="container">
+    <div class="welcome-text" data-aos="fade-up">
+        <div class="welcome-message">
+            Дорогие гости!<br>
+            Будем счастливы разделить с вами<br>
+            один из самых важных дней нашей жизни!
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="glass-card" data-aos="fade-up">
         <h2>До свадьбы осталось</h2>
@@ -516,7 +554,7 @@
 
         <div class="glass-card" data-aos="fade-left" id="alcoholFormCard">
             <h2>🍸 Что пьём?</h2>
-            <p>Выберите до 3 вариантов! 🥂</p>
+            <p>Выберите до 3 вариантов — бокалы подпрыгнут! 🥂</p>
             <div id="alcoholFormContent">
                 <div class="drinks-grid" id="drinksGrid">
                     <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
@@ -536,7 +574,7 @@
         <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
         <div class="gift-text">
             Друзья, мы очень трепетно относимся к вашему вниманию.<br>
-            Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! <br>
+            Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! 🥴<br>
             <strong>Крепко, искристо, вкусно — что по душе, то и везите!</strong>
         </div>
         <button class="gift-btn" id="understandBtn">Понял 👌</button>
@@ -716,7 +754,7 @@
             if (selectedDrinks.length) {
                 alcoholStatusDiv.innerHTML = `✨ Выбрано: ${selectedDrinks.join(', ')} ✨`;
                 if (selectedDrinks.length === 3) {
-                    alcoholStatusDiv.innerHTML += ' 🎉 Ух ты, полный набор! 🥂';
+                    alcoholStatusDiv.innerHTML += ' 🎉 Ух ты, полный набор! Шампанское на вас! 🥂';
                 }
             } else {
                 alcoholStatusDiv.innerHTML = '';
@@ -753,7 +791,7 @@
     });
 
     document.getElementById('understandBtn').addEventListener('click', () => {
-        const jokes = ['💕 Спасибо, что поняли!', '🍾 Вы — наш человек!', '💪 Крепкое решение!'];
+        const jokes = ['🥴 Спасибо, что поняли!', '🍾 Вы — наш человек!', '💪 Крепкое решение!'];
         const msg = document.createElement('div');
         msg.innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
         msg.style.marginTop = '1rem';
