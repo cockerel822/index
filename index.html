@@ -516,7 +516,7 @@
 
         <div class="glass-card" data-aos="fade-left" id="alcoholFormCard">
             <h2>🍸 Что пьём?</h2>
-            <p>Выберите до 3 вариантов — бокалы подпрыгнут! 🥂</p>
+            <p>Выберите до 3 вариантов! 🥂</p>
             <div id="alcoholFormContent">
                 <div class="drinks-grid" id="drinksGrid">
                     <div class="drink-card" data-drink="Вино"><div class="drink-icon">🍷</div><div>Вино</div></div>
@@ -536,7 +536,7 @@
         <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
         <div class="gift-text">
             Друзья, мы очень трепетно относимся к вашему вниманию.<br>
-            Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! 🥴<br>
+            Цветы завянут, а хороший напиток согреет душу и развяжет языки для тостов! <br>
             <strong>Крепко, искристо, вкусно — что по душе, то и везите!</strong>
         </div>
         <button class="gift-btn" id="understandBtn">Понял 👌</button>
@@ -753,7 +753,7 @@
     });
 
     document.getElementById('understandBtn').addEventListener('click', () => {
-        const jokes = ['🥴 Спасибо, что поняли!', '🍾 Вы — наш человек!', '💪 Крепкое решение!'];
+        const jokes = ['💕 Спасибо, что поняли!', '🍾 Вы — наш человек!', '💪 Крепкое решение!'];
         const msg = document.createElement('div');
         msg.innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
         msg.style.marginTop = '1rem';
