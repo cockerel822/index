@@ -41,7 +41,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 6rem 1.5rem; /* Добавил нижний отступ, чтобы кнопки не перекрывали контент */
+            padding: 2rem 1.5rem;
             position: relative;
             z-index: 1;
         }
@@ -66,7 +66,7 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* Hero секция только с датой */
+        /* Hero с A&D и датой */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -87,21 +87,40 @@
             border: 1px solid rgba(212, 175, 122, 0.5);
         }
 
+        /* Аббревиатура — чёрно-белая с лёгким свечением */
+        .initials {
+            font-size: 6rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 2px rgba(255,255,255,0.8);
+            animation: subtleGlow 3s infinite ease-in-out;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes subtleGlow {
+            0% { text-shadow: 0 0 5px rgba(0,0,0,0.4), 0 0 2px rgba(255,255,255,0.6); }
+            50% { text-shadow: 0 0 12px rgba(0,0,0,0.6), 0 0 4px rgba(255,255,255,0.9); }
+            100% { text-shadow: 0 0 5px rgba(0,0,0,0.4), 0 0 2px rgba(255,255,255,0.6); }
+        }
+
         /* Стиль для даты с анимацией */
         .wedding-date {
-            font-size: 4.5rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: #fff5ee;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
             font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             animation: datePulse 2.5s infinite ease-in-out;
+            margin-top: 0.5rem;
         }
         
         @keyframes datePulse {
-            0% { opacity: 0.8; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); transform: scale(1);}
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(212,175,122,0.8); transform: scale(1.02);}
-            100% { opacity: 0.8; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); transform: scale(1);}
+            0% { opacity: 0.8; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); transform: scale(1);}
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(212,175,122,0.5); transform: scale(1.01);}
+            100% { opacity: 0.8; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); transform: scale(1);}
         }
 
         .glass-card {
@@ -305,7 +324,6 @@
             100% { opacity: 0; transform: scale(1.5) translateY(-30px); }
         }
 
-        /* Увеличенная кнопка для блока с подарками */
         .gift-block {
             background: linear-gradient(135deg, rgba(212,175,122,0.15), rgba(201,160,108,0.1));
             border-radius: 1.8rem;
@@ -330,7 +348,6 @@
             transform: scale(1.02);
         }
 
-        /* Стиль для свободного дресс-кода */
         .dresscode {
             text-align: center;
             margin: 1.5rem 0;
@@ -359,39 +376,39 @@
             font-size: 0.9rem;
         }
 
-        /* Закреплённые кнопки внизу */
-        .bottom-buttons {
+        /* Плавающие кнопки справа */
+        .floating-buttons {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            bottom: 25px;
+            right: 25px;
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 248, 240, 0.95);
-            backdrop-filter: blur(8px);
-            border-top: 1px solid rgba(212, 175, 122, 0.5);
+            flex-direction: column;
+            gap: 12px;
             z-index: 1000;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
         }
-        .bottom-btn {
-            background: #c9a06c;
+        .float-btn {
+            background: rgba(201, 160, 108, 0.92);
+            backdrop-filter: blur(4px);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 10px 24px;
+            padding: 10px 22px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
         }
-        .bottom-btn:hover {
-            background: #b88855;
-            transform: translateY(-2px);
+        .float-btn:hover {
+            transform: scale(1.08);
+            background: #c9a06c;
         }
-        .secret-bottom-btn {
-            background: rgba(160, 128, 96, 0.9);
+        .secret-btn {
+            animation: pulseRose 2s infinite;
+        }
+        @keyframes pulseRose {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201,160,108,0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(201,160,108,0); }
         }
 
         .modal {
@@ -431,7 +448,8 @@
 
         @media (max-width: 800px) {
             .two-columns { flex-direction: column; }
-            .wedding-date { font-size: 2.5rem; }
+            .initials { font-size: 3.5rem; }
+            .wedding-date { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -439,8 +457,9 @@
 
 <section class="hero">
     <div class="hero-content">
+        <div class="initials">А&Д</div>
         <div class="wedding-date">22 августа 2026</div>
-        <div style="margin-top: 1rem; font-size: 1rem; color: #fff5ee;">Церемония 15:40 | Банкет 17:00</div>
+        <div style="margin-top: 0.8rem; font-size: 1rem; color: #fff5ee;">Церемония 15:40 | Банкет 17:00</div>
     </div>
 </section>
 
@@ -491,7 +510,7 @@
             </div>
         </div>
 
-        <!-- Правая колонка — алкоголь (Вино, Водка, Виски, Самогон, Шампанское) -->
+        <!-- Правая колонка — алкоголь -->
         <div class="glass-card" data-aos="fade-left" id="alcoholFormCard">
             <h2>🍸 Что пьём?</h2>
             <p>Выберите до 3 вариантов — бокалы подпрыгнут! 🥂</p>
@@ -509,7 +528,7 @@
         </div>
     </div>
 
-    <!-- Блок про цветы с увеличенной кнопкой -->
+    <!-- Блок про цветы -->
     <div class="gift-block" data-aos="fade-up">
         <div class="gift-icon">🥂🍇✨</div>
         <div class="gift-title">Вместо цветов — бутылка вашего настроения</div>
@@ -521,7 +540,7 @@
         <button class="gift-btn" id="understandBtn">Понял 👌</button>
     </div>
 
-    <!-- Блок свободного дресс-кода -->
+    <!-- Дресс-код -->
     <div class="dresscode" data-aos="fade-up">
         🌿 <strong>Свободный дресс-код</strong> 🌿<br>
         Будьте собой и чувствуйте себя комфортно ✨
@@ -560,10 +579,10 @@
     <p>Ждём вас с нетерпением! 💕</p>
 </footer>
 
-<!-- Закреплённые кнопки внизу -->
-<div class="bottom-buttons">
-    <button class="bottom-btn" id="calendarBtn">📅 Добавить в календарь</button>
-    <button class="bottom-btn secret-bottom-btn" id="secretBtn">💌 Секретик</button>
+<!-- ПЛАВАЮЩИЕ КНОПКИ СПРАВА -->
+<div class="floating-buttons">
+    <button class="float-btn" id="calendarBtn">📅 Добавить в календарь</button>
+    <button class="float-btn secret-btn" id="secretBtn">💌 Секретик</button>
 </div>
 
 <div id="secretModal" class="modal">
@@ -752,7 +771,7 @@
         setTimeout(() => msg.remove(), 2000);
     });
 
-    // Закреплённые кнопки (календарь и секрет)
+    // Календарь
     document.getElementById('calendarBtn').addEventListener('click', () => {
         const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Свадьба Андрея и Дарьи\nDTSTART:20260822T154000\nDTEND:20260823T020000\nLOCATION:ЗАГС и отель Тверь\nEND:VEVENT\nEND:VCALENDAR`;
         const blob = new Blob([ics], { type: 'text/calendar' });
@@ -760,8 +779,23 @@
         link.href = URL.createObjectURL(blob);
         link.download = 'wedding.ics';
         link.click();
+        
+        const msg = document.createElement('div');
+        msg.innerHTML = '✅ Добавлено в календарь! Ждём вас! 📅💕';
+        msg.style.position = 'fixed';
+        msg.style.bottom = '100px';
+        msg.style.right = '25px';
+        msg.style.background = '#c9a06c';
+        msg.style.color = 'white';
+        msg.style.padding = '10px 20px';
+        msg.style.borderRadius = '2rem';
+        msg.style.zIndex = '1001';
+        msg.style.fontSize = '0.9rem';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 3000);
     });
 
+    // Секрет
     const secretBtn = document.getElementById('secretBtn');
     const secretModal = document.getElementById('secretModal');
     const closeSecret = document.getElementById('closeSecretModal');
